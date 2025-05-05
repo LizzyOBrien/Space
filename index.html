@@ -1,17 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Basic HTML Page</title>
+  <!-- Character encoding and mobile responsiveness -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>Our Solar System</title>
+
+  <!-- Links the external CSS file for styling -->
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-  <h1>Welcome to My Website</h1>
-  <p>This is a basic HTML page.</p>
-  <ul>
-    hello world!
-    <li>Home</li>
-    <li>About</li>
-    <li>Cont</li>
-  </ul>
+  <!-- Main wrapper that holds all content on the page -->
+  <div class="page-container">
+
+    <!-- HEADER SECTION -->
+    <!-- This section holds the page title and prompt, positioned in top-right -->
+    <header class="header-text">
+      <h1>Our Solar System</h1>
+      <p>Which planet would you like to go to?</p>
+    </header>
+
+    <!-- MAIN SOLAR LAYOUT -->
+    <!-- Contains the sun and the row of clickable planets -->
+    <main class="solar-wrapper">
+      
+      <!-- Represents the sun; styled in CSS as a big yellow circle -->
+      <div class="sun"></div>
+
+      <!-- Holds all planet links in a horizontal layout -->
+      <div class="planets">
+        <!-- Each planet is a clickable link styled as a circle via the CSS 'planet' class.
+             The planet name (like 'mercury') is used for color and individual styles -->
+        <a href="mercury.html" class="planet mercury" title="Go to Mercury"></a>
+        <a href="venus.html" class="planet venus" title="Go to Venus"></a>
+        <a href="earth.html" class="planet earth" title="Go to Earth"></a>
+        <a href="mars.html" class="planet mars" title="Go to Mars"></a>
+        <a href="jupiter.html" class="planet jupiter" title="Go to Jupiter"></a>
+        <a href="saturn.html" class="planet saturn" title="Go to Saturn"></a>
+        <a href="uranus.html" class="planet uranus" title="Go to Uranus"></a>
+        <a href="neptune.html" class="planet neptune" title="Go to Neptune"></a>
+      </div>
+    </main>
+
+    <!-- ALIEN -->
+    <!-- Adds a friendly alien image fixed to the bottom-right corner -->
+    <div class="alien">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Alien_icon.svg/1024px-Alien_icon.svg.png" alt="Alien friend" />
+    </div>
+
+  </div> <!-- End of page-container -->
 </body>
 </html>

@@ -1,0 +1,59 @@
+/* Sets default font and fills screen height */
+body {
+    font-family: sans-serif;
+    height: 100vh;
+    margin: 0; /* Removes default margin */
+  }
+  
+  /* Main container for the page layout */
+  .page-container {
+    position: relative;
+    height: 100%;
+  }
+  
+  /* Positions title and prompt in the top-right */
+  .header-text {
+    position: absolute;
+    text-align: right;
+  }
+  
+  /* Horizontal layout: sun and planets row */
+  .solar-wrapper {
+    display: flex;
+    align-items: center;         /* Vertically center sun + planets */
+    justify-content: space-between; /* Spread sun + planets across full width */
+    height: 100%;
+  }
+  
+  /* Horizontal layout for planets only */
+  .planets {
+    display: flex;
+    justify-content: space-between; /* Even spacing between planets */
+    align-items: center;
+    flex-grow: 1; /* Fills space next to the sun */
+  }
+  
+  /* Basic circle shape for all planets */
+  .planet {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+  }
+  
+  /* Alien icon floats in bottom-right corner */
+  .alien {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+  
+  /* Planet-specific colors and sizes */
+  .mercury { background-color: gray; }
+  .venus   { background-color: orange; }
+  .earth   { background-color: blue; }
+  .mars    { background-color: red; }
+  .jupiter { background-color: brown; width: 80px; height: 80px; }
+  .saturn  { background-color: goldenrod; width: 70px; height: 70px; }
+  .uranus  { background-color: lightblue; }
+  .neptune { background-color: darkblue; }
+  
