@@ -25,24 +25,35 @@
     <!-- MAIN SOLAR LAYOUT -->
     <!-- Contains the sun and the row of clickable planets -->
     <main class="solar-wrapper">
-      
-      <!-- Represents the sun; styled in CSS as a big yellow circle -->
       <div class="sun"></div>
-
-      <!-- Holds all planet links in a horizontal layout -->
+    
       <div class="planets">
-        <!-- Each planet is a clickable link styled as a circle via the CSS 'planet' class.
-             The planet name (like 'mercury') is used for color and individual styles -->
-        <a href="mercury.html" class="planet mercury" title="Go to Mercury"></a>
-        <a href="venus.html" class="planet venus" title="Go to Venus"></a>
-        <a href="earth.html" class="planet earth" title="Go to Earth"></a>
-        <a href="mars.html" class="planet mars" title="Go to Mars"></a>
-        <a href="jupiter.html" class="planet jupiter" title="Go to Jupiter"></a>
-        <a href="saturn.html" class="planet saturn" title="Go to Saturn"></a>
-        <a href="uranus.html" class="planet uranus" title="Go to Uranus"></a>
-        <a href="neptune.html" class="planet neptune" title="Go to Neptune"></a>
+        <div class="planet-wrapper" data-name="Mercury">
+          <a href="mercury.html" class="planet mercury"></a>
+        </div>
+        <div class="planet-wrapper" data-name="Venus">
+          <a href="venus.html" class="planet venus"></a>
+        </div>
+        <div class="planet-wrapper" data-name="Earth">
+          <a href="earth.html" class="planet earth"></a>
+        </div>
+        <div class="planet-wrapper" data-name="Mars">
+          <a href="mars.html" class="planet mars"></a>
+        </div>
+        <div class="planet-wrapper" data-name="Jupiter">
+          <a href="jupiter.html" class="planet jupiter"></a>
+        </div>
+        <div class="planet-wrapper" data-name="Saturn">
+          <a href="saturn.html" class="planet saturn"></a>
+        </div>
+        <div class="planet-wrapper" data-name="Uranus">
+          <a href="uranus.html" class="planet uranus"></a>
+        </div>
+        <div class="planet-wrapper" data-name="Neptune">
+          <a href="neptune.html" class="planet neptune"></a>
+        </div>
       </div>
-    </main>
+    </main>    
 
     <!-- ALIEN -->
     <!-- Adds a friendly alien image fixed to the bottom-right corner -->

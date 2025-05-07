@@ -1,59 +1,148 @@
-/* Sets default font and fills screen height */
+/* ==================== GLOBAL ==================== */
 body {
-    font-family: sans-serif;
-    height: 100vh;
-    margin: 0; /* Removes default margin */
-  }
-  
-  /* Main container for the page layout */
-  .page-container {
-    position: relative;
-    height: 100%;
-  }
-  
-  /* Positions title and prompt in the top-right */
-  .header-text {
-    position: absolute;
-    text-align: right;
-  }
-  
-  /* Horizontal layout: sun and planets row */
-  .solar-wrapper {
-    display: flex;
-    align-items: center;         /* Vertically center sun + planets */
-    justify-content: space-between; /* Spread sun + planets across full width */
-    height: 100%;
-  }
-  
-  /* Horizontal layout for planets only */
-  .planets {
-    display: flex;
-    justify-content: space-between; /* Even spacing between planets */
-    align-items: center;
-    flex-grow: 1; /* Fills space next to the sun */
-  }
-  
-  /* Basic circle shape for all planets */
-  .planet {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-  }
-  
-  /* Alien icon floats in bottom-right corner */
-  .alien {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-  }
-  
-  /* Planet-specific colors and sizes */
-  .mercury { background-color: gray; }
-  .venus   { background-color: orange; }
-  .earth   { background-color: blue; }
-  .mars    { background-color: red; }
-  .jupiter { background-color: brown; width: 80px; height: 80px; }
-  .saturn  { background-color: goldenrod; width: 70px; height: 70px; }
-  .uranus  { background-color: lightblue; }
-  .neptune { background-color: darkblue; }
-  
+  font-family: sans-serif;
+  height: 100vh;
+  margin: 0; /* Removes default margin */
+  background: linear-gradient(to bottom, #000000, #1c0520);
+  color: white;
+}
+
+/* Main container for the page layout */
+.page-container {
+  position: relative;
+  height: 100%;
+}
+
+/* ==================== HEADER ==================== */
+/* Positions title and prompt in the top-right */
+.header-text {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
+/* === Main container === */
+.solar-wrapper {
+  position: relative;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-x: hidden;
+}
+
+/* === Sun peeking in === */
+.sun {
+  position: absolute;
+  left: -450px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 600px;
+  height: 600px;
+  background-color: #FFC107;
+  border-radius: 50%;
+  z-index: -1; /*put planet behind*/
+}
+
+/* === Planet row with padding + auto spacing === */
+.planets {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* auto spacing */
+  padding-left: 200px;
+  padding-right: 50px;
+  width: 100%;
+  box-sizing: border-box;
+  z-index: 1;
+}
+
+/* === Base planet style === */
+.planet {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: gray;
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.planet:hover {
+  transform: scale(1.2);
+  cursor: pointer;
+  box-shadow: 0 0 20px 20px #35024b;
+}
+
+.planet-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Label below planet on hover */
+.planet-wrapper::after {
+  content: attr(data-name);
+  position: absolute;
+  top: 120%; /* Below the planet */
+  color: white;
+  font-size: 16px;
+  opacity: 0;
+  transform: translateY(5px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  pointer-events: none;
+}
+
+/* Show label on hover */
+.planet-wrapper:hover::after {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* === Planet colors and custom sizes === */
+.mercury {
+  background-color: #999999;  /* deep metallic gray */
+  width: 19px;
+  height: 19px;
+}
+
+.venus {
+  background-color: #FF9800;  /* rich orange */
+  width: 38px;
+  height: 38px;
+}
+
+.earth {
+  background-color: #2196F3;  /* bold Earth blue */
+  width: 40px;
+  height: 40px;
+}
+
+.mars {
+  background-color: #E53935;  /* deep red */
+  width: 21px;
+  height: 21px;
+}
+
+.jupiter {
+  background-color: #FF7043;  /* vibrant orange-coral */
+  width: 110px;
+  height: 110px;
+}
+
+.saturn {
+  background-color: #FFC107;  /* golden mustard */
+  width: 90px;
+  height: 90px;
+}
+
+.uranus {
+  background-color: #26C6DA;  /* bright teal */
+  width: 50px;
+  height: 50px;
+}
+
+.neptune {
+  background-color: #3F51B5;  /* strong indigo-blue */
+  width: 48px;
+  height: 48px;
+}
