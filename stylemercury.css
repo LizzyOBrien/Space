@@ -1,4 +1,4 @@
-ody, html {
+  body, html {
     margin: 0;
     padding: 0;
     font-family: sans-serif;
@@ -6,29 +6,56 @@ ody, html {
     background: black;
   }
   
-  /* scene container for each planet */
-  .planet-mercury-screen {
-    position: relative;
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
-  }
-  
-  /* mercury before expand */
   .planet-mercury {
     position: absolute;
     width: 200px;
     height: 200px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    overflow: hidden;
+    z-index: 1;
+    transition: all 1s ease;
+  }
+  
+  /* Mercury image (layered background via ::before) */
+  .planet-mercury::before {
+    content: "";
+    position: absolute;
+    inset: 0;
     background-image: url("images/Mercury.png");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    border-radius: 50%;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    transition: all 1s ease;
+    transition: opacity 1s ease;
+    z-index: 2;
+  }
+  
+  /* Orange-red background behind the Mercury image */
+  .planet-mercury::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle, orange, red);
+    opacity: 0;
+    transition: opacity 1s ease;
     z-index: 1;
+  }
+  
+  /* When expanding the planet */
+  .planet-mercury.expand {
+    width: 3000px;
+    height: 3000px;
+    transform: translate(-50%, -50%);
+  }
+  
+  .planet-mercury.expand::before {
+    opacity: 0; /* fade out Mercury image */
+  }
+  
+  .planet-mercury.expand::after {
+    opacity: 1; /* fade in orange background */
   }
   
   /* Expand planet transition*/
@@ -43,8 +70,8 @@ ody, html {
   /* Spaceship with alien */
   .spaceship {
     position: absolute;
-    top: 20%;
-    left: -200px;
+    bottom: 20%;
+    right: -200px;
     width: 150px;
     transition: all 1.5s ease;
     z-index: 2;
@@ -56,11 +83,11 @@ ody, html {
   
   /* Animation for flyin/out */
   .fly-in {
-    left: 10%;
+    right: 200px;
   }
   
   .fly-out {
-    left: 120%;
+    right: -200px;
   }
   
   /* -------dialogue box --------*/
@@ -79,11 +106,14 @@ ody, html {
   }
   
   .dialogue {
+    position: relative;
     background: #1e1e1e;
     color: white;
     padding: 2rem;
+    padding-bottom: 4rem;
     border-radius: 1rem;
-    max-width: 400px;
+    width: 400px;
+    height: 220px;
     text-align: left;
     box-shadow: 0 0 20px rgba(0,0,0,0.5);
     animation: fadeIn 0.5s ease;
@@ -93,10 +123,18 @@ ody, html {
     font-size: 2rem;
     margin-bottom: 1rem;
   }
+
+  .dialogue p {
+    font-size: 1rem;
+    line-height: 1.4;
+    margin-bottom: 1.5rem;
+  }
   
   /* Buttons for advancing the dialogue */
   .dialogue button {
-    margin-top: 1rem;
+    position: absolute;
+    bottom: 1.5rem;
+    left: 1.5rem;
     padding: 0.75rem 1.5rem;
     font-size: 1rem;
     background-color: #572963;
