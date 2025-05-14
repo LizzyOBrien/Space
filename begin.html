@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Alien Intro</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="page-container">
+
+    <!-- === SCREEN 0: INTRO === -->
+    <div class="screen">
+      <div class="intro-content">
+        <div class="intro-text">
+          <h1>BUT ONE DAY...</h1>
+          <p>The planet was destroyed! And all the aliens that escaped needed a new home.</p>
+          <p>Can you help them find a new habitat for their species?</p>
+          <button class="btn-next">START EXPLORING</button>
+        </div>
+        <div class="intro-visuals">
+          <img src="images/brokenPlanet.png" alt="Broken planet" class="intro-planet" />
+          <img src="images/alienPod.png" alt="Alien pod" class="intro-pod" />
+        </div>
+      </div>
+    </div>
+
+    <!-- === SCREEN 1: ALIEN SELECT === -->
+    <div class="screen">
+      <div class="intro-content">
+        <div class="intro-text">
+          <h1>FIRST, SELECT YOUR EXPLORER!</h1>
+          <div class="alien-select">
+            <img src="images/alien1.png" onclick="selectAlien('alien1.png', this)" />
+            <img src="images/alien2.png" onclick="selectAlien('alien2.png', this)" />
+            <img src="images/alien3.png" onclick="selectAlien('alien3.png', this)" />
+            <img src="images/alien4.png" onclick="selectAlien('alien4.png', this)" />
+          </div>
+          <input type="text" id="explorerName" placeholder="EXPLORER'S NAME" />
+          <button class="btn-next">Next</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- === SCREEN 2: GREETING === -->
+    <div class="screen">
+      <div class="intro-content">
+        <div class="intro-text">
+          <h1>WELCOME!</h1>
+          <p id="greetingText">Hello human, we will find a planet for my kind!</p>
+          <a href="index.html"><button class="btn-next">Next</button></a>
+        </div>
+        <div class="intro-visuals" id="selectedAlien">
+          <!-- Alien image will go here -->
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="intro.js"></script>
+</body>
+</html>
