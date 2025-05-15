@@ -19,7 +19,7 @@
     transition: all 1s ease;
   }
   
-  /* Mercury image (layered background via ::before) */
+  /* Mercury image from space */
   .planet-mercury::before {
     content: "";
     position: absolute;
@@ -58,7 +58,7 @@
     opacity: 1; /* fade in orange background */
   }
   
-  /* Expand planet transition*/
+    /* Expand planet transition*/
   .planet-mercury.expand {
     width: 3000px;
     height: 3000px;
@@ -66,20 +66,30 @@
     background: radial-gradient(circle ,orange, red);
     transform: translate(-50%, -50%);
   }
-  
-  /* Spaceship with alien */
+
+  /********Spaceship***********/
   .spaceship {
     position: absolute;
     bottom: 20%;
     right: -200px;
     width: 150px;
     transition: all 1.5s ease;
-    z-index: 2;
+    z-index: 3; 
   }
   
   .spaceship img {
-    width: 100%;
+    width:100%
   }
+
+.spaceship .sunglasses-on-alien {
+  position: absolute;
+  top: 25%;
+  left: 18%;
+  width: 65%;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
   
   /* Animation for flyin/out */
   .fly-in {
@@ -102,7 +112,7 @@
     align-items: flex-start;
     padding: 2rem;
     box-sizing: border-box;
-    z-index: 3;
+    z-index: 4;
   }
   
   .dialogue {
@@ -143,6 +153,41 @@
     border-radius: 8px;
     cursor: pointer;
   }
+
+  .sunglass-reward {
+    position: absolute;
+    top: 45%;
+    left: 20%;
+    z-index: 3;
+    display: none;
+  }
+
+  .sunglass-box {
+    background-color: black;
+    padding: 1rem;
+    border-radius: 1rem;
+    box-shadow: 0 0 15px yellow;
+    transition: transform 0.8s ease-in-out;
+  }
+
+  .sunglass-box:hover {
+    box-shadow: 0 0 30px yellow;
+  }
+
+  .sunglass-box img {
+    width: 100px;
+  }
+
+/* When wearing */
+  .wear-animation {
+    transform: translate(350px, -160px) scale(0.65); /* Fly toward alien */
+  }
+
+  .fade-out {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  }
+
   
   /* Animation for showing each dialogue*/
   @keyframes fadeIn {
