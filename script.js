@@ -21,14 +21,22 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // Spaceship animations
-  function spaceshipEnter() {
-    spaceship.classList.remove("fly-out");
+  
+  function spaceshipFlyIn() {
     spaceship.classList.add("fly-in");
   }
 
-  function spaceshipExit() {
-    spaceship.classList.remove("fly-in");
+  function spaceshipFlyOut() {
+    spaceship.classList.remove("fly-in", "from-top", "park-top-left");
     spaceship.classList.add("fly-out");
+  }
+
+  function spaceshipEnterFromTop() {
+    spaceship.classList.remove("fly-out");
+    spaceship.classList.add("from-top");
+    setTimeout(() => {
+      spaceship.classList.add("park-top-left");
+    }, 10);
   }
 
   // Planet expands
@@ -36,20 +44,22 @@ document.addEventListener("DOMContentLoaded", function () {
     planet.classList.add("expand");
   }
 
-  // Button click handling
   nextButtons.forEach((button) => {
     button.addEventListener("click", () => {
       if (currentScreen === 0) {
-        expandPlanet();
-        setTimeout(spaceshipEnter, 1000); // delay alien until planet expands
+        spaceshipFlyOut();
+        setTimeout(() => {
+          expandPlanet();
+          setTimeout(spaceshipEnterFromTop, 1500);
+        }, 1000);
       }
-
-      if (currentScreen === 1) {
-        spaceshipEnter();
-      }
-
+    
       if (currentScreen === screens.length - 2) {
-        spaceshipExit();
+        spaceship.classList.remove("park-top-left");
+        spaceship.classList.add("from-top");
+        setTimeout(() => {
+          spaceship.style.top = "-300px";
+        }, 100);
       }
 
       currentScreen++;
@@ -76,4 +86,5 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   showScreen(currentScreen);
+  spaceshipFlyIn();
 });
