@@ -86,9 +86,5 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   showScreen(currentScreen);
-<<<<<<< HEAD
   spaceshipFlyIn();
 });
-=======
-});
->>>>>>> 57e907b169031160ab6946d96daf6857365f10ee
