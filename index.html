@@ -16,7 +16,7 @@
   <div class="page-container">
 
     <!-- HEADER SECTION -->
-    <!-- This section holds the page title and prompt, positioned in top-right -->
+    <!-- Section holds the page title and prompt, positioned in top-right -->
     <header class="header-text">
       <h1>Our Solar System</h1>
       <p>Which planet would you like to go to?</p>
@@ -70,9 +70,7 @@
       </div>
     </main>
      
-
     <!-- ALIEN -->
-    <!-- Adds a friendly alien image fixed to the bottom-right corner -->
     <div class="alien">
     <img id="selectedAlienImg" src="" alt="Your Spaceship" />
 
@@ -84,10 +82,10 @@
           const selectedAlien = localStorage.getItem('selectedAlien');
 
           if (selectedAlien) {
-            // Extract the number (e.g. "alien3.png" → "3")
+            // Extract the alien number ("alien3.png" = "3")
             const alienNumber = selectedAlien.match(/\d+/)?.[0];
             
-            // Build the correct spaceship image path
+            // spaceship image path
             const spaceshipImage = `images/AlienSpaceship${alienNumber}.png`;
 
             // Set the image source to the spaceship
