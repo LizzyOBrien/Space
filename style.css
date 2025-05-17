@@ -138,7 +138,7 @@ body, html {
 }
 
 .alien-select img {
-  width: 60px;
+  width: 80px;
   cursor: pointer;
   transition: transform 0.2s ease;
   border: 2px solid transparent;
@@ -296,20 +296,10 @@ body, html {
 #selectedAlien img { /* I dont even know if this is being used now - will check later*/
   display: block;
   margin-top: 1rem;
-  width: 120px;
+  width: 170px;
 }
 
 /* ==================== INTRO SCREEN LAYOUT ==================== */
-.screen {
-  display: none;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  padding: 3rem;
-  box-sizing: border-box;
-}
 
 .intro-content {
   display: flex;
@@ -361,9 +351,31 @@ body, html {
 }
 
 /* === ALIEN SELECT STYLES === */
+.alien-screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 100%;
+  padding: 2rem;
+  gap: 1.5rem;
+}
+
+.alien-screen h1 {
+  font-size: 2rem;
+  margin: 0;
+}
+
+.alien-screen input,
+.alien-screen .btn-next {
+  max-width: 300px;
+  width: 80%;
+}
+
 .alien-select {
   display: flex;
-  justify-content: center; /* center the group */
+  justify-content: center;
   align-items: center;
   flex-wrap: wrap;
   gap: 40px;
@@ -372,9 +384,9 @@ body, html {
 }
 
 .alien-select img {
-  width: 140px; /* increase size */
+  width: 100px; /* increase size */
   height: auto;
-  max-width: 160px;
+  max-width: 100px;
   flex: 0 0 auto;
   cursor: pointer;
   transition: transform 0.2s ease;
@@ -400,15 +412,15 @@ body, html {
 
 /* === BUTTON === */
 .btn-next {
-  padding: 0.5rem 1rem;
+  padding: 0.75rem 1.5rem;
   font-size: 1rem;
   font-weight: bold;
   background-color: white;
   color: black;
   border: none;
-  border-radius: 6px;
+  border-radius: 8px;
   cursor: pointer;
-  width: fit-content;
+  z-index: 10;
 }
 
 .intro-text .btn-next {
@@ -416,4 +428,51 @@ body, html {
   bottom: 0;
   left: 0;
   margin-top: auto;
+  bottom: 20px;
+}
+
+.screen-alien {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.alien-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  max-width: 600px;
+  padding: 2rem;
+  gap: 1.5rem;
+}
+
+/* Top-left heading */
+.alien-screen-heading {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 1.75rem;
+  font-weight: bold;
+  margin: 0;
+  z-index: 10;
+}
+
+/* Bottom-left button */
+.btn-fixed {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  background-color: white;
+  color: black;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  z-index: 10;
 }
