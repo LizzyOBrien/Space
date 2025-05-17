@@ -9,6 +9,20 @@
 <body>
   <div class="page-container">
 
+     <div class="screen">
+      <div class="intro-content">
+        <div class="intro-text">
+          <h1>IN A GALAXY FAR FAR AWAY......</h1>
+          <p>There was a planet of happy stubblors; a species of alien that are small, round and full of curiosity! </p>
+          <button class="btn-next">NEXT</button>
+        </div>
+        <div class="intro-visuals">
+          <img src="images/brokenPlanet.png" alt="Broken planet" class="intro-planet" />
+          <img src="images/alienPod.png" alt="Alien pod" class="intro-pod" />
+        </div>
+      </div>
+    </div>
+
     <!-- === SCREEN 0: INTRO === -->
     <div class="screen">
       <div class="intro-content">
@@ -37,7 +51,7 @@
       <img src="images/alien4.png" onclick="selectAlien('alien4.png', this)" />
     </div>
 
-    <input type="text" id="explorerName" placeholder="EXPLORER'S NAME" />
+    <input type="text" id="explorerName" placeholder="YOUR NAME" />
   </div>
 
   <button class="btn-next btn-fixed">Next</button>
@@ -53,7 +67,7 @@
           <a href="index.html"><button class="btn-next">Next</button></a>
         </div>
         <div class="intro-visuals" id="selectedAlien">
-          <!-- Alien image will go here -->
+          <!-- Spaceship image gets inserted here via JS -->
         </div>
       </div>
     </div>

@@ -74,9 +74,29 @@
     <!-- ALIEN -->
     <!-- Adds a friendly alien image fixed to the bottom-right corner -->
     <div class="alien">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Alien_icon.svg/1024px-Alien_icon.svg.png" alt="Alien friend" />
-    </div>
+    <img id="selectedAlienImg" src="" alt="Your Spaceship" />
+
+  </div>
 
   </div> <!-- End of page-container -->
+    <script>
+          // Load the selected alien image name from localStorage
+          const selectedAlien = localStorage.getItem('selectedAlien');
+
+          if (selectedAlien) {
+            // Extract the number (e.g. "alien3.png" → "3")
+            const alienNumber = selectedAlien.match(/\d+/)?.[0];
+            
+            // Build the correct spaceship image path
+            const spaceshipImage = `images/AlienSpaceship${alienNumber}.png`;
+
+            // Set the image source to the spaceship
+            document.getElementById('selectedAlienImg').src = spaceshipImage;
+          } else {
+            // fallback image if nothing was selected
+            document.getElementById('selectedAlienImg').src = "images/defaultAlien.png";
+          }
+</script>
+
 </body>
 </html>

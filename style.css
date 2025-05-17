@@ -19,6 +19,7 @@ body, html {
   position: absolute;
   top: 20px;
   left: 20px;
+  z-index: 3;
 }
 
 /* ==================== SOLAR SYSTEM ==================== */
@@ -40,7 +41,7 @@ body, html {
   height: 600px;
   background-color: #FFC107;
   border-radius: 50%;
-  z-index: -1;
+  z-index: 1;
 }
 
 .planets {
@@ -51,7 +52,7 @@ body, html {
   padding-right: 50px;
   width: 100%;
   box-sizing: border-box;
-  z-index: 1;
+  z-index: 2;
 }
 
 .planet-wrapper {
@@ -119,6 +120,20 @@ body, html {
   transform: translateY(0);
 }
 
+/* ==================== INDEX ALIEN ==================== */
+.alien {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 5;
+}
+
+#selectedAlienImg {
+  width: 180px;
+  height: auto;
+}
+
+
 /* ==================== PLANET IMAGES ==================== */
 .mercury { background-image: url("images/mercury.png"); width: 19px; height: 19px; }
 .venus   { background-image: url("images/venus.png");   width: 38px; height: 38px; }
@@ -132,18 +147,27 @@ body, html {
 /* ==================== ALIEN SELECTION ==================== */
 .alien-select {
   display: flex;
-  justify-content: center;
-  gap: 20px;
-  margin: 1rem 0;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 40px;
+  margin-bottom: 2rem;
+  width: 100%;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .alien-select img {
-  width: 80px;
+  width: clamp(120px, 18vw, 180px); /* Responsive sizing */
+  height: auto;
+  flex: 0 0 auto;
   cursor: pointer;
-  transition: transform 0.2s ease;
+  transition: transform 0.3s ease;
   border: 2px solid transparent;
-  border-radius: 10px;
+  border-radius: 12px;
 }
+
 
 .alien-select img.selected {
   transform: scale(1.2);
@@ -159,144 +183,13 @@ body, html {
   border: none;
 }
 
-/* ==================== MERCURY EXPANSION ==================== */
-.planet-mercury {
-  position: absolute;
-  width: 200px;
-  height: 200px;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  border-radius: 50%;
-  overflow: hidden;
-  z-index: 1;
-  transition: all 1s ease;
-}
-
-.planet-mercury::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: url("images/Mercury.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  transition: opacity 1s ease;
-  z-index: 2;
-}
-
-.planet-mercury::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle, orange, red);
-  opacity: 0;
-  transition: opacity 1s ease;
-  z-index: 1;
-}
-
-.planet-mercury.expand {
-  width: 3000px;
-  height: 3000px;
-  transform: translate(-50%, -50%);
-  background-image: none;
-  background: radial-gradient(circle, orange, red);
-}
-
-.planet-mercury.expand::before {
-  opacity: 0;
-}
-
-.planet-mercury.expand::after {
-  opacity: 1;
-}
-
-/* ==================== SPACESHIP ==================== */
-.spaceship {
-  position: absolute;
-  bottom: 20%;
-  right: -200px;
-  width: 150px;
-  transition: all 1.5s ease;
-  z-index: 2;
-}
-
-.spaceship img {
-  width: 100%;
-}
-
-.fly-in {
-  right: 200px;
-}
-
-.fly-out {
-  right: -200px;
-}
-
-/* ==================== DIALOGUE ==================== */
-.screen {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  display: none;
-  justify-content: flex-end;
-  align-items: flex-start;
-  padding: 2rem;
-  box-sizing: border-box;
-  z-index: 3;
-}
-
-.dialogue {
-  position: relative;
-  background: #1e1e1e;
-  color: white;
-  padding: 2rem;
-  padding-bottom: 4rem;
-  border-radius: 1rem;
-  width: 400px;
-  height: 220px;
-  text-align: left;
-  box-shadow: 0 0 20px rgba(0,0,0,0.5);
-  animation: fadeIn 0.5s ease;
-}
-
-.dialogue h1 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-}
-
-.dialogue p {
-  font-size: 1rem;
-  line-height: 1.4;
-  margin-bottom: 1.5rem;
-}
-
-.dialogue button {
-  position: absolute;
-  bottom: 1.5rem;
-  left: 1.5rem;
-  padding: 0.75rem 1.5rem;
-  font-size: 1rem;
-  background-color: #572963;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
 /* ==================== BEGIN: INTRO SCREEN ADDITIONS ==================== */
 
-#selectedAlien img { /* I dont even know if this is being used now - will check later*/
-  display: block;
-  margin-top: 1rem;
-  width: 170px;
+
+#selectedAlien {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* ==================== INTRO SCREEN LAYOUT ==================== */
@@ -351,6 +244,22 @@ body, html {
 }
 
 /* === ALIEN SELECT STYLES === */
+.screen {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  display: none; /* or "flex" for the active screen */
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  z-index: 3;
+  padding: 0 20px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
 .alien-screen {
   display: flex;
   flex-direction: column;
@@ -375,21 +284,21 @@ body, html {
 
 .alien-select {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  gap: 40px;
-  margin-bottom: 2rem;
   width: 100%;
+  max-width: 90%;
+  margin: 0 auto 2rem;
+  gap: 2rem;
 }
 
 .alien-select img {
-  width: 100px; /* increase size */
+  width: clamp(150px, 20vw, 200px); /* Bigger, responsive images */
   height: auto;
-  max-width: 100px;
-  flex: 0 0 auto;
+  flex: 0 1 auto;
   cursor: pointer;
-  transition: transform 0.2s ease;
+  transition: transform 0.3s ease;
   border: 2px solid transparent;
   border-radius: 12px;
 }
@@ -410,32 +319,12 @@ body, html {
   width: 100%;
 }
 
-/* === BUTTON === */
-.btn-next {
-  padding: 0.75rem 1.5rem;
-  font-size: 1rem;
-  font-weight: bold;
-  background-color: white;
-  color: black;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  z-index: 10;
-}
-
 .intro-text .btn-next {
   position: absolute;
   bottom: 0;
   left: 0;
   margin-top: auto;
   bottom: 20px;
-}
-
-.screen-alien {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
 }
 
 .alien-screen {
@@ -445,7 +334,6 @@ body, html {
   justify-content: center;
   text-align: center;
   width: 100%;
-  max-width: 600px;
   padding: 2rem;
   gap: 1.5rem;
 }
@@ -476,3 +364,17 @@ body, html {
   cursor: pointer;
   z-index: 10;
 }
+
+/* === BUTTON === */
+.btn-next {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  background-color: white;
+  color: black;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  z-index: 10;
+}
+

@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
+  // When an alien image is clicked, store its file name and visually highlight it
   window.selectAlien = function (img, element) {
     selectedAlien = img;
     document.querySelectorAll('.alien-select img').forEach(el => el.classList.remove('selected'));
@@ -24,32 +25,41 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function confirmAlien() {
-    const nameInput = document.getElementById('explorerName');
-    const name = nameInput.value.trim();
+  const nameInput = document.getElementById('explorerName');
+  const name = nameInput.value.trim();
 
-    if (!selectedAlien || !name) {
-      alert("Please pick an alien and enter a name!");
-      return;
-    }
-
-    explorerName = name;
-
-    // Update text
-    document.getElementById('greetingText').innerText =
-      `“HELLO HUMAN, I’M ${explorerName.toUpperCase()}, WITH YOUR HELP, I KNOW WE WILL FIND A NEW PLANET FOR MY KIND!”`;
-
-    // Show selected alien image
-    document.getElementById('selectedAlien').innerHTML =
-      `<img src="images/${selectedAlien}" style="width: 120px;">`;
-
-    nextScreen();
+  if (!selectedAlien || !name) {
+    alert("Please pick an alien and enter a name!");
+    return;
   }
 
+  explorerName = name;
+
+  // Get the number from the selected alien image name (e.g., "alien3.png" → "3")
+  const alienNumber = selectedAlien.match(/\d+/)?.[0];
+  const spaceshipImage = `AlienSpaceship${alienNumber}.png`;
+
+  // ✅ Save alien + spaceship image names for the next page
+  localStorage.setItem('selectedAlien', selectedAlien);
+  localStorage.setItem('selectedSpaceship', spaceshipImage);
+
+  // Update the greeting message with the explorer's name
+  document.getElementById('greetingText').innerText =
+    `“Hello human, I’m ${explorerName}, with your help, I know we will find a new planet for my kind!”`;
+
+  // Show the corresponding spaceship image (no alien image)
+  document.getElementById('selectedAlien').innerHTML =
+    `<img src="images/${spaceshipImage}" style="width: 250px;" alt="Spaceship" />`;
+
+  nextScreen();
+}
+
+
+  // Handle button clicks: either move to the next screen or confirm alien info
   nextButtons.forEach((button) => {
     button.addEventListener("click", () => {
       const parent = button.closest(".screen");
 
-      // If screen contains the name input, run confirmAlien()
       if (parent.querySelector("#explorerName")) {
         confirmAlien();
       } else {
