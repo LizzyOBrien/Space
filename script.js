@@ -6,9 +6,9 @@ document.addEventListener("DOMContentLoaded", function () {
   const leaveButton = document.querySelector(".btn-leave");
   const spaceship = document.querySelector(".spaceship");
   const planet = document.querySelector(".planet-mercury");
-  const sunglassReward = document.querySelector(".sunglass-reward");
-  const sunglassesOnAlien = document.querySelector(".sunglasses-on-alien");
-  const sunglassBox = document.querySelector(".sunglass-box");
+  const item = document.querySelector(".item");
+  const itemOnAlien = document.querySelector(".item-on-alien");
+  const itemBox = document.querySelector(".item-box");
 
   // Show only the current screen
   function showScreen(index) {
@@ -16,8 +16,8 @@ document.addEventListener("DOMContentLoaded", function () {
       screen.style.display = i === index ? "flex" : "none";
     });
   
-    // Show sunglasses box only on screen 3
-    sunglassReward.style.display = index === 3 ? "block" : "none";
+    // Show item box only on screen 3
+    item.style.display = index === 3 ? "block" : "none";
   }
 
   // Spaceship animations
@@ -44,6 +44,7 @@ document.addEventListener("DOMContentLoaded", function () {
     planet.classList.add("expand");
   }
 
+  //********Buttons**********//
   nextButtons.forEach((button) => {
     button.addEventListener("click", () => {
       if (currentScreen === 0) {
@@ -62,10 +63,10 @@ document.addEventListener("DOMContentLoaded", function () {
   //Wear button
   if (wearButton) {
     wearButton.addEventListener("click", () => {
-      sunglassBox.classList.add("wear-animation");
+      itemBox.classList.add("wear-animation");
       setTimeout(() => {
-        sunglassesOnAlien.style.opacity = 1;
-        sunglassReward.style.display = "none";
+        itemOnAlien.style.opacity = 1;
+        item.style.display = "none";
       }, 1400);
     });
   }
@@ -74,7 +75,7 @@ document.addEventListener("DOMContentLoaded", function () {
   if (leaveButton) {
     leaveButton.addEventListener("click", () => {
       spaceship.classList.remove("from-top", "park-top-left");
-      spaceship.classList.add("fly-out");
+      spaceship.classList.add("fly-up-exit");
       setTimeout(() => {
         window.location.href = "index.html";
       }, 1500); // Delay redirect so user sees spaceship leave
