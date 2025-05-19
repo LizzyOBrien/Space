@@ -54,14 +54,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }, 1000);
       }
     
-      if (currentScreen === screens.length - 2) {
-        spaceship.classList.remove("park-top-left");
-        spaceship.classList.add("from-top");
-        setTimeout(() => {
-          spaceship.style.top = "-300px";
-        }, 100);
-      }
-
       currentScreen++;
       showScreen(currentScreen);
     });
@@ -72,16 +64,20 @@ document.addEventListener("DOMContentLoaded", function () {
     wearButton.addEventListener("click", () => {
       sunglassBox.classList.add("wear-animation");
       setTimeout(() => {
-        sunglassReward.classList.add("fade-out");
         sunglassesOnAlien.style.opacity = 1;
-      }, 800);
+        sunglassReward.style.display = "none";
+      }, 1400);
     });
   }
   
-  // Leave button
+  // leave button - fly out with delay
   if (leaveButton) {
     leaveButton.addEventListener("click", () => {
-      window.location.href = "index.html";
+      spaceship.classList.remove("from-top", "park-top-left");
+      spaceship.classList.add("fly-out");
+      setTimeout(() => {
+        window.location.href = "index.html";
+      }, 1500); // Delay redirect so user sees spaceship leave
     });
   }
 
