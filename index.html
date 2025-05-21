@@ -1,100 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Character encoding and mobile responsiveness -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
   <title>Our Solar System</title>
-
-  <!-- Links the external CSS file for styling -->
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  <!-- Main wrapper that holds all content on the page -->
   <div class="page-container">
-
-    <!-- HEADER SECTION -->
-    <!-- Section holds the page title and prompt, positioned in top-right -->
     <header class="header-text">
       <h1>Our Solar System</h1>
       <p>Which planet would you like to go to?</p>
     </header>
-<button class="restart-button" onclick="location.href='start.html'">Restart Game</button>
-    <!-- MAIN SOLAR LAYOUT -->
-    <!-- Contains the sun and the row of clickable planets -->
+
+    <button class="restart-button" onclick="location.href='start.html'">Restart Game</button>
+
     <main class="solar-wrapper">
-      <div class="sun"></div>
-    
+      <div class="sun" aria-hidden="true"></div>
+
       <div class="planets">
+        <!-- Mercury -->
         <div class="planet-wrapper" data-name="Mercury">
           <div class="planet-glow"></div>
-          <a href="mercury.html" class="planet mercury"></a>
+          <a href="mercury2.html" class="planet mercury" aria-label="Go to Mercury" title="Go to Mercury"></a>
         </div>
-    
+
+        <!-- Venus -->
         <div class="planet-wrapper" data-name="Venus">
           <div class="planet-glow"></div>
-          <a href="venus.html" class="planet venus"></a>
+          <a href="venus.html" class="planet venus" aria-label="Go to Venus" title="Go to Venus"></a>
         </div>
-    
+
+        <!-- Earth -->
         <div class="planet-wrapper" data-name="Earth">
           <div class="planet-glow"></div>
-          <a href="earth.html" class="planet earth"></a>
+          <a href="earth.html" class="planet earth" aria-label="Go to Earth" title="Go to Earth"></a>
         </div>
-    
+
+        <!-- Mars -->
         <div class="planet-wrapper" data-name="Mars">
           <div class="planet-glow"></div>
-          <a href="mars.html" class="planet mars"></a>
+          <a href="mars.html" class="planet mars" aria-label="Go to Mars" title="Go to Mars"></a>
         </div>
-    
+
+        <!-- Jupiter -->
         <div class="planet-wrapper" data-name="Jupiter">
           <div class="planet-glow"></div>
-          <a href="jupiter.html" class="planet jupiter"></a>
+          <a href="jupiter.html" class="planet jupiter" aria-label="Go to Jupiter" title="Go to Jupiter"></a>
         </div>
-    
+
+        <!-- Saturn -->
         <div class="planet-wrapper" data-name="Saturn">
           <div class="planet-glow saturn-glow"></div>
-          <a href="saturn.html" class="planet saturn"></a>
-        </div>        
-    
+          <a href="saturn.html" class="planet saturn" aria-label="Go to Saturn" title="Go to Saturn"></a>
+        </div>
+
+        <!-- Uranus -->
         <div class="planet-wrapper" data-name="Uranus">
           <div class="planet-glow"></div>
-          <a href="uranus.html" class="planet uranus"></a>
+          <a href="uranus.html" class="planet uranus" aria-label="Go to Uranus" title="Go to Uranus"></a>
         </div>
-    
+
+        <!-- Neptune -->
         <div class="planet-wrapper" data-name="Neptune">
           <div class="planet-glow"></div>
-          <a href="neptune.html" class="planet neptune"></a>
+          <a href="neptune.html" class="planet neptune" aria-label="Go to Neptune" title="Go to Neptune"></a>
         </div>
       </div>
     </main>
-     
-    <!-- ALIEN -->
-    <div class="alien">
-    <img id="selectedAlienImg" src="" alt="Your Spaceship" />
 
+    <!-- Alien -->
+    <div class="alien" role="img" aria-label="Selected alien spaceship">
+      <img id="selectedAlienImg" src="" alt="Your Spaceship" />
+    </div>
   </div>
 
-  </div> <!-- End of page-container -->
-    <script>
-          // Load the selected alien image name from localStorage
-          const selectedAlien = localStorage.getItem('selectedAlien');
+  <script>
+    const selectedAlien = localStorage.getItem('selectedAlien');
 
-          if (selectedAlien) {
-            // Extract the alien number ("alien3.png" = "3")
-            const alienNumber = selectedAlien.match(/\d+/)?.[0];
-            
-            // spaceship image path
-            const spaceshipImage = `images/AlienSpaceship${alienNumber}.png`;
-
-            // Set the image source to the spaceship
-            document.getElementById('selectedAlienImg').src = spaceshipImage;
-          } else {
-            // fallback image if nothing was selected
-            document.getElementById('selectedAlienImg').src = "images/defaultAlien.png";
-          }
-</script>
-
+    if (selectedAlien) {
+      const alienNumber = selectedAlien.match(/\d+/)?.[0];
+      const spaceshipImage = `images/AlienSpaceship${alienNumber}.png`;
+      document.getElementById('selectedAlienImg').src = spaceshipImage;
+    } else {
+      document.getElementById('selectedAlienImg').src = "images/defaultAlien.png";
+    }
+  </script>
 </body>
 </html>

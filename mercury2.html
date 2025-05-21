@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mercury</title>
+  <link rel="stylesheet" href="planet.css" />
+</head>
+<body 
+  class="planet-page" 
+  data-planet-name="MERCURY"
+  data-bg="images/Mercury.png"
+  data-bg-expanded="images/MercuryB.png"
+  data-item="images/Sunglass.png"
+  data-item-name="sunglasses">
+
+  <!-- Background changes on planet zoom -->
+  <div id="planet-background" class="planet-bg"></div>
+
+  <!-- Planet image container (optional for transitions) -->
+  <div class="planet-screen"></div>
+
+  <!-- Alien flies in/out -->
+  <div class="spaceship fly-in">
+    <img src="images/AlienSpaceship1.png" alt="Alien in spaceship" />
+    <img class="item-on-alien" src="" alt="Alien item" />
+  </div>
+
+  <!-- Item box shown when collected -->
+  <div class="item-box">
+    <div class="item-content item">
+      <img src="" alt="Item image" />
+    </div>
+  </div>
+
+  <!-- Dialogue Screens -->
+  <div class="screen">
+    <div class="dialogue">
+      <h1></h1>
+      <p>This planet is super close to the sun!</p>
+      <button class="btn-next">Continue</button>
+    </div>
+  </div>
+
+  <div class="screen">
+    <div class="dialogue">
+      <h1></h1>
+      <p>And because <span class="planet-name"></span> doesn’t have an atmosphere to block the sun’s rays, it’s just <strong>BLASTED</strong> with sunlight all the time.</p>
+      <button class="btn-next">Continue</button>
+    </div>
+  </div>
+
+  <div class="screen">
+    <div class="dialogue">
+      <h1></h1>
+      <p>No clouds, no shade, just bright sun</p>
+      <button class="btn-next">Continue</button>
+    </div>
+  </div>
+
+  <div class="screen">
+    <div class="dialogue">
+      <h1></h1>
+      <p>I found some <span class="item-name">gear</span> to help me look around without it hurting my eyes!</p>
+      <button class="btn-next wear-btn">Collect</button>
+    </div>
+  </div>
+
+  <div class="screen">
+    <div class="dialogue">
+      <h1></h1>
+      <p>This place is really hot. Let's move on to the next planet!</p>
+      <button class="btn-next btn-leave">Leave</button>
+    </div>
+  </div>
+
+  <script src="planet.js"></script>
+</body>
+</html>
