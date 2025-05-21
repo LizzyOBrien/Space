@@ -42,9 +42,10 @@ function spaceshipEnterFromTop() {
 }
 
   // Planet expands and show surface
-  function expandPlanet() {
-    planet.classList.add("expand", "show-after");
-  }
+function expandPlanet() {
+  const background = document.getElementById("planet-background");
+  background.classList.add("planet-expanded");
+}
 
   function animatePlanetZoom() {
     const planetBackground = document.getElementById("planet-background");
