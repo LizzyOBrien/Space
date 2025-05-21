@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Character encoding and mobile responsiveness -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Earth</title>
+  <link rel="stylesheet" href="planet.css" />
+</head>
+<body class="earth-page">
+  
+  <div id="planet-background" class="planet-earth"></div>
+
+  <!-- container for mercury before expand -->
+  <div class="planet-screen planet-earth"
+    data-default-image="images/Earth.png"
+    data-expanded-image="images/EarthB.png">
+  </div>
+
+  <!-- Alien flies in/out -->
+  <div class="spaceship fly-in">
+    <img src="images/AlienSpaceship1.png" alt="Alien in spaceship" />
+    <img class="item-on-alien" src="image/Cup.png" alt="Fast food drink"/>
+  </div>
+
+<div class="item-box item-earth">
+  <div class="item-content item">
+    <img src="images/Cup.png" alt="Fast food drink">
+  </div>
+</div>
+
+    <!-- "screen" is the dialogue box -->
+    <div class="screen">
+      <div class="dialogue">
+        <h1>EARTH</h1>
+        <p>There’s water everywhere—oceans, lakes, even clouds in the sky!</p>
+        <button class="btn-next">Continue</button>
+      </div>
+    </div>
+
+    <div class="screen">
+      <div class="dialogue">
+        <h1>EARTH</h1>
+        <p>The air’s cool, the sun’s not too bright, and there’s a breeze!</p>
+        <button class="btn-next">Continue</button>
+      </div>
+    </div>
+
+    <div class="screen">
+      <div class="dialogue">
+        <h1>EARTH</h1>
+        <p>After all that heat and acid rain, this is a total reset.</p>
+        <button class="btn-next">Continue</button>
+      </div>
+    </div>
+
+    <div class="screen">
+      <div class="dialogue">
+        <h1>EARTH</h1>
+        <p>They even have stores where you can get food and drinks!</p>
+        <button class="btn-next wear-btn">Collect</button>
+      </div>
+    </div>
+
+    <div class="screen">
+      <div class="dialogue">
+        <h1>EARTH</h1>
+        <p>It’s peaceful here. Kinda perfect. Okay… time to see what’s next!</p>
+        <button class="btn-next btn-leave">Leave</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

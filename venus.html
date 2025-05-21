@@ -8,6 +8,69 @@
   <link rel="stylesheet" href="planet.css" />
 </head>
 <body class="venus-page">
-  <div id="planet-background"></div>
-  <!-- rest of content -->
+  
+  <div id="planet-background" class="planet-venus"></div>
+
+  <!-- container for mercury before expand -->
+  <div class="planet-screen planet-venus"
+    data-default-image="images/Venus.png"
+    data-expanded-image="images/VenusB.png">
+  </div>
+
+  <!-- Alien flies in/out -->
+  <div class="spaceship fly-in">
+    <img src="images/AlienSpaceship1.png" alt="Alien in spaceship" />
+    <img class="item-on-alien" src="image/Sunglass.png" alt="Green Sunglasses"/>
+  </div>
+
+<div class="item-box item-venus">
+  <div class="item-content item">
+    <img src="images/Unbrella.png" alt="Green Umbrella">
+  </div>
+</div>
+
+    <!-- "screen" is the dialogue box -->
+    <div class="screen">
+      <div class="dialogue">
+        <h1>VENUS</h1>
+        <p>This planet is covered in thick clouds and traps in tons of heat!</p>
+        <button class="btn-next">Continue</button>
+      </div>
+    </div>
+
+    <div class="screen">
+      <div class="dialogue">
+        <h1>VENUS</h1>
+        <p>The air is full of swirling clouds and the sky always looks kinda yellow.</p>
+        <button class="btn-next">Continue</button>
+      </div>
+    </div>
+
+    <div class="screen">
+      <div class="dialogue">
+        <h1>VENUS</h1>
+        <p>It even rains acid here. Definitely not the kind of place you want to get caught without cover.</p>
+        <button class="btn-next">Continue</button>
+      </div>
+    </div>
+
+    <div class="screen">
+      <div class="dialogue">
+        <h1>VENUS</h1>
+        <p>Good thing I have this umbrella!</p>
+        <button class="btn-next wear-btn">Collect</button>
+      </div>
+    </div>
+
+    <div class="screen">
+      <div class="dialogue">
+        <h1>VENUS</h1>
+        <p>This place to to hot and to cloudy. Lets move on to another planet!</p>
+        <button class="btn-next btn-leave">Leave</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
 </body>
+</html>
