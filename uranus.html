@@ -1,79 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Character encoding and mobile responsiveness -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Uranus</title>
+  <title>Mercury</title>
   <link rel="stylesheet" href="planet.css" />
 </head>
-<body 
-  class="planet-page" 
-  data-planet-name="URANUS"
-  data-bg="images/Uranus.png"
-  data-bg-expanded="images/UranusB.png"
-  data-item="images/Scarf.png"
-  data-item-name="scarf">
+<body class="planet-page"
+data-planet-name="URANUS"
+data-bg="images/Uranus.png"
+data-bg-expanded="images/UranusB.png"
+data-item="images/Scarf.png"
+data-item-name="Red scarf">
 
-  <!-- Background changes on planet zoom -->
-  <div id="planet-background" class="planet-bg"></div>
+  <div id="planet-background" class="planet-uranus"></div>
 
-  <!-- Planet image container (optional for transitions) -->
-  <div class="planet-screen"></div>
+  <!-- container for mercury before expand -->
+  <div class="planet-screen planet-uranus"></div>
 
   <!-- Alien flies in/out -->
   <div class="spaceship fly-in">
     <img src="images/AlienSpaceship1.png" alt="Alien in spaceship" />
-    <img class="item-on-alien" src="" alt="Alien item" />
+    <img class="item-on-alien" src="image/Scarf.png" alt="Red scarf"/>
   </div>
 
-  <!-- Item box shown when collected -->
-  <div class="item-box">
-    <div class="item-content item">
-      <img src="" alt="Item image" />
+<div class="item-box item-uranus">
+  <div class="item-content item">
+    <img src="images/Scarf.png" alt="Red scarf">
+  </div>
+</div>
+
+    <!-- "screen" is the dialogue box -->
+    <div class="screen">
+      <div class="dialogue">
+        <h1>URANUS</h1>
+        <p>This planet is sideways?</p>
+        <button class="btn-next">Continue</button>
+      </div>
+    </div>
+
+    <div class="screen">
+      <div class="dialogue">
+        <h1>URANUS</h1>
+        <p>This planet spins like it’s rolling around instead of straight up like the others.</p>
+        <button class="btn-next">Continue</button>
+      </div>
+    </div>
+
+    <div class="screen">
+      <div class="dialogue">
+        <h1>URANUS</h1>
+        <p>This is definitely the coldest planet! Im already turning to ice.</p>
+        <button class="btn-next">Continue</button>
+      </div>
+    </div>
+
+    <div class="screen">
+      <div class="dialogue">
+        <h1>URANUS</h1>
+        <p>I’m glad I found this scarf. It’s freezing out here!</p>
+        <button class="btn-next wear-btn">Collect</button>
+      </div>
+    </div>
+
+    <div class="screen">
+      <div class="dialogue">
+        <h1>URANUS</h1>
+        <p>This planet’s way too chilly for me — time to keep moving!</p>
+        <button class="btn-next btn-leave">Leave</button>
+      </div>
     </div>
   </div>
 
-  <!-- Dialogue Screens -->
-  <div class="screen">
-    <div class="dialogue">
-      <h1></h1>
-      <p>This planet is super close to the sun!</p>
-      <button class="btn-next">Continue</button>
-    </div>
-  </div>
-
-  <div class="screen">
-    <div class="dialogue">
-      <h1></h1>
-      <p>And because <span class="planet-name"></span> doesn’t have an atmosphere to block the sun’s rays, it’s just <strong>BLASTED</strong> with sunlight all the time.</p>
-      <button class="btn-next">Continue</button>
-    </div>
-  </div>
-
-  <div class="screen">
-    <div class="dialogue">
-      <h1></h1>
-      <p>No clouds, no shade, just bright sun</p>
-      <button class="btn-next">Continue</button>
-    </div>
-  </div>
-
-  <div class="screen">
-    <div class="dialogue">
-      <h1></h1>
-      <p>I found some <span class="item-name">gear</span> to help me look around without it hurting my eyes!</p>
-      <button class="btn-next wear-btn">Collect</button>
-    </div>
-  </div>
-
-  <div class="screen">
-    <div class="dialogue">
-      <h1></h1>
-      <p>This place is really hot. Let's move on to the next planet!</p>
-      <button class="btn-next btn-leave">Leave</button>
-    </div>
-  </div>
-
-  <script src="planet.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>

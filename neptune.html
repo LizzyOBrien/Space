@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Character encoding and mobile responsiveness -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Neptune</title>
+  <link rel="stylesheet" href="planet.css" />
+</head>
+<body class="planet-page"
+data-planet-name="Neptune"
+data-bg="images/Neptune.png"
+data-bg-expanded="images/NeptuneB.png"
+data-item="images/Google.png"
+data-item-name="Goggles">
+
+  <div id="planet-background" class="planet-neptune"></div>
+
+  <!-- container for mercury before expand -->
+  <div class="planet-screen planet-neptune"></div>
+
+  <!-- Alien flies in/out -->
+  <div class="spaceship fly-in">
+    <img src="images/AlienSpaceship1.png" alt="Alien in spaceship" />
+    <img class="item-on-alien" src="image/Google.png" alt="Goggles"/>
+  </div>
+
+<div class="item-box item-neptune">
+  <div class="item-content item">
+    <img src="images/Google.png" alt="Goggles">
+  </div>
+</div>
+
+    <!-- "screen" is the dialogue box -->
+    <div class="screen">
+      <div class="dialogue">
+        <h1>NEPTUNE</h1>
+        <p>This one’s a deep blue color, looks mysterious.</p>
+        <button class="btn-next">Continue</button>
+      </div>
+    </div>
+
+    <div class="screen">
+      <div class="dialogue">
+        <h1>NEPTUNE</h1>
+        <p>There isn’t really a surface, just icy storms. The winds here are the fastest of all the planets.</p>
+        <button class="btn-next">Continue</button>
+      </div>
+    </div>
+
+    <div class="screen">
+      <div class="dialogue">
+        <h1>NEPTUNE</h1>
+        <p>We are so far from the sun, it’s just dark, cold, and stormy. It feels like a never-ending space hurricane!</p>
+        <button class="btn-next">Continue</button>
+      </div>
+    </div>
+
+    <div class="screen">
+      <div class="dialogue">
+        <h1>NEPTUNE</h1>
+        <p>These storm goggles help me see through all this icy rain. Much better!</p>
+        <button class="btn-next wear-btn">Collect</button>
+      </div>
+    </div>
+
+    <div class="screen">
+      <div class="dialogue">
+        <h1>NEPTUNE</h1>
+        <p>This planet is intense, lets get out of here.</p>
+        <button class="btn-next btn-leave">Leave</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
