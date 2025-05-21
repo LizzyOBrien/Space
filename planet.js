@@ -1,45 +1,45 @@
 document.addEventListener("DOMContentLoaded", function () {
   let currentScreen = 0;
-  const body = document.body;
   const screens = document.querySelectorAll(".screen");
   const nextButtons = document.querySelectorAll(".btn-next");
   const wearButton = document.querySelector(".wear-btn");
   const leaveButton = document.querySelector(".btn-leave");
   const spaceship = document.querySelector(".spaceship");
+  const planet = document.querySelector(".planet-screen");
+  const itemBox = document.querySelector(".item-box");
   const item = document.querySelector(".item img");
   const itemOnAlien = document.querySelector(".item-on-alien");
-  const itemBox = document.querySelector(".item-box");
   const background = document.getElementById("planet-background");
 
-  // === Setup from data attributes ===
+  // === Get dynamic values from <body> ===
+  const body = document.body;
   const planetName = body.dataset.planetName || "PLANET";
-  const bgDefault = body.dataset.bg;
+  const bgImage = body.dataset.bg;
   const bgExpanded = body.dataset.bgExpanded;
-  const itemImg = body.dataset.item;
+  const itemSrc = body.dataset.item;
   const itemLabel = body.dataset.itemName || "item";
 
-  // Update UI with planet name and item
+  // === Apply initial values ===
+  background.style.backgroundImage = `url('${bgImage}')`;
+  item.src = itemSrc;
+  itemOnAlien.src = itemSrc;
+
+  // Update all <h1> and inline text with planet name
   document.querySelectorAll("h1").forEach(h => h.textContent = planetName);
   document.querySelectorAll(".planet-name").forEach(span => span.textContent = planetName);
   document.querySelectorAll(".item-name").forEach(span => span.textContent = itemLabel);
-  item.src = itemImg;
-  itemOnAlien.src = itemImg;
-  background.style.backgroundImage = `url('${bgDefault}')`;
 
-  // === Helper Functions ===
+  // Show only the current screen
   function showScreen(index) {
     screens.forEach((screen, i) => {
       screen.style.display = i === index ? "flex" : "none";
     });
 
+    // Show item box only on screen 3
     itemBox.style.display = index === 3 ? "block" : "none";
   }
 
-  function expandPlanet() {
-    background.classList.add("planet-expanded");
-    background.style.backgroundImage = `url('${bgExpanded}')`;
-  }
-
+  // === Spaceship animations ===
   function spaceshipFlyIn() {
     spaceship.classList.remove("fly-out", "from-top", "park-top-left");
     spaceship.classList.add("fly-in");
@@ -59,7 +59,13 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 100);
   }
 
-  // === Button Events ===
+  // === Planet expands and changes background ===
+  function expandPlanet() {
+    background.classList.add("planet-expanded");
+    background.style.backgroundImage = `url('${bgExpanded}')`;
+  }
+
+  // === Button click handling ===
   nextButtons.forEach((button) => {
     button.addEventListener("click", () => {
       if (currentScreen === 0) {
@@ -97,7 +103,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Initialize
   showScreen(currentScreen);
   spaceshipFlyIn();
 });
