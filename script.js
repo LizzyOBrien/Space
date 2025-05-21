@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const wearButton = document.querySelector(".wear-btn");
   const leaveButton = document.querySelector(".btn-leave");
   const spaceship = document.querySelector(".spaceship");
-  const planet = document.querySelector(".planet-mercury");
+  const planet = document.querySelector(".planet-screen");
   const item = document.querySelector(".item");
   const itemOnAlien = document.querySelector(".item-on-alien");
   const itemBox = document.querySelector(".item-box");
@@ -17,33 +17,48 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   
     // Show item box only on screen 3
-    item.style.display = index === 3 ? "block" : "none";
+    itemBox.style.display = index === 3 ? "block" : "none";
   }
 
   // Spaceship animations
   
-  function spaceshipFlyIn() {
-    spaceship.classList.add("fly-in");
-  }
+function spaceshipFlyIn() {
+  spaceship.classList.remove("fly-out", "from-top", "park-top-left");
+  spaceship.classList.add("fly-in");
+}
 
-  function spaceshipFlyOut() {
-    spaceship.classList.remove("fly-in", "from-top", "park-top-left");
-    spaceship.classList.add("fly-out");
-  }
+function spaceshipFlyOut() {
+  spaceship.classList.remove("fly-in", "from-top", "park-top-left");
+  spaceship.classList.add("fly-out");
+}
 
-  function spaceshipEnterFromTop() {
-    spaceship.classList.remove("fly-out");
-    spaceship.classList.add("from-top");
-    setTimeout(() => {
-      spaceship.classList.add("park-top-left");
-    }, 10);
-  }
+function spaceshipEnterFromTop() {
+  spaceship.classList.remove("fly-out", "fly-in");
+  spaceship.classList.add("from-top");
 
-  // Planet expands
-  function expandPlanet() {
-    planet.classList.add("expand");
-  }
+  setTimeout(() => {
+    spaceship.classList.add("park-top-left");
+  }, 100);
+}
 
+  // Planet expands and show surface
+function expandPlanet() {
+  const background = document.getElementById("planet-background");
+  background.classList.add("planet-expanded");
+}
+
+  function animatePlanetZoom() {
+    const planetBackground = document.getElementById("planet-background");
+    planetBackground.style.backgroundImage = "url('images/MercuryB.png')";
+
+    const planetImg = document.getElementById("planet");
+    planetImg.classList.add("planet-zoom");
+
+  // Fade out the first planet image
+  setTimeout(() => {
+    planetImg.style.opacity = "0";
+  }, 1000);
+}
   //********Buttons**********//
   nextButtons.forEach((button) => {
     button.addEventListener("click", () => {
@@ -51,10 +66,12 @@ document.addEventListener("DOMContentLoaded", function () {
         spaceshipFlyOut();
         setTimeout(() => {
           expandPlanet();
-          setTimeout(spaceshipEnterFromTop, 1500);
+          setTimeout(() => {
+            spaceshipEnterFromTop();
+          }, 1500);
         }, 1000);
       }
-    
+
       currentScreen++;
       showScreen(currentScreen);
     });
@@ -78,7 +95,7 @@ document.addEventListener("DOMContentLoaded", function () {
       spaceship.classList.add("fly-up-exit");
       setTimeout(() => {
         window.location.href = "index.html";
-      }, 1500); // Delay redirect so user sees spaceship leave
+      }, 1500);
     });
   }
 

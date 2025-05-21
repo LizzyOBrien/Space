@@ -8,59 +8,133 @@ body, html {
 }
 
 /************ PLANET STYLES (Use class like .planet-mercury, .planet-venus, etc) ************/
-.planet {
-  position: absolute;
-  width: 800px;
-  height: 800px;
-  top: 50%;
-  left: 10%;
-  transform: translate(-50%, -50%);
-  border-radius: 50%;
-  overflow: hidden;
-  z-index: 1;
-  transition: all 1.5s ease;
+#planet-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
 }
 
-/***view before expand***/
-.planet::before {
+#planet-background::before,
+#planet-background::after {
   content: "";
   position: absolute;
-  inset: 0;
-  background-image: url("images/Mercury.png");
-  background-size: contain;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   background-repeat: no-repeat;
   background-position: center;
   transition: opacity 1s ease;
-  z-index: 2;
 }
 
-/***view after expand***/
-.planet::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle, orange, red); /* Customize per planet */
-  opacity: 0;
-  transition: opacity 1s ease;
+/* Initial planet image */
+#planet-background::before {
+  width: 300px;
+  height: 300px;
+  background-size: contain;
+  opacity: 1;
   z-index: 1;
 }
 
-/* Planet expand animation */
-.planet.expand {
-  top: 50%;
-  left: 50%;
-  width: 3000px;
-  height: 3000px;
-  transform: translate(-50%, -50%);
-  background: radial-gradient(circle, orange, red);
+/* Full-screen expanded image */
+#planet-background::after {
+  width: 100vw;
+  height: 100vh;
+  background-size: cover;
+  opacity: 0;
+  z-index: 2;
 }
 
-.planet.expand::before {
-  opacity: 0; /* fade out image */
+/* When planet expands */
+.planet-expanded::before {
+  opacity: 0;
 }
 
-.planet.expand::after {
-  opacity: 1; /* fade in background */
+.planet-expanded::after {
+  opacity: 1;
+}
+
+.planet-screen::before,
+.planet-screen::after {
+  transition: opacity 1s ease-in-out;
+}
+
+/**********Planet images********/
+.planet-mercury::before {
+  background-image: url("images/Mercury.png");
+}
+
+.planet-mercury::after {
+  background-image: url("images/MercuryB.png");
+}
+
+.planet-venus::before {
+  background-image: url("images/Venus.png");
+}
+
+.planet-venus::after {
+  background-image: url("images/VenusB.png");
+}
+
+.planet-earth::before {
+  background-image: url("images/Earth.png");
+}
+
+.planet-earth::after {
+  background-image: url("images/EarthB.png");
+}
+
+.planet-mars::before {
+  background-image: url("images/Mars.png");
+}
+
+.planet-mars::after {
+  background-image: url("images/MarsB.png");
+}
+
+.planet-jupiter::before {
+  background-image: url("images/Jupiter.png");
+}
+
+.planet-jupiter::after {
+  background-image: url("images/JupiterB.png");
+}
+
+.planet-saturn::before {
+  background-image: url("images/Saturn.png");
+}
+
+.planet-saturn::after {
+  background-image: url("images/SaturnB.png");
+}
+
+.planet-uranus::before {
+  background-image: url("images/Uranus.png");
+}
+
+.planet-uranus::after {
+  background-image: url("images/UranusB.png");
+}
+
+.planet-neptune::before {
+  background-image: url("images/Neptune.png");
+}
+
+.planet-neptune::after {
+  background-image: url("images/NeptuneB.png");
+}
+
+#planet-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
 }
 
 /************ SPACESHIP ************/
@@ -199,11 +273,10 @@ body, html {
   display: none;
 }
 
-.item-content {
+.item-box {
   background-color: black;
   padding: 1rem;
   border-radius: 1rem;
-  box-shadow: 0 0 15px yellow;
   transition: transform 0.8s ease-in-out;
   width: 400px;
   height: 220px;
@@ -212,12 +285,13 @@ body, html {
   align-items: center;
 }
 
-.item-content img {
+.item img {
   width: 100%;
   max-height: 100%;
+  object-fit: contain;
 }
 
-.item-content:hover {
+.item-box:hover {
   box-shadow: 0 0 30px yellow;
 }
 
@@ -231,4 +305,29 @@ body, html {
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
+}
+
+
+@keyframes flyOutRight {
+  0% { right: 200px; }
+  100% { right: -600px; }
+}
+
+.fly-out {
+  animation: flyOutRight 1s ease-in forwards;
+}
+
+@keyframes expandPlanet {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.5);
+  }
+}
+
+.planet-screen.expand {
+  animation: expandPlanet 1s ease-in-out forwards;
+  background-size: cover;
+  background-position: center;
 }
