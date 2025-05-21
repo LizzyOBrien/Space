@@ -69,7 +69,7 @@ p {
   padding-right: 50px;
   width: 100%;
   box-sizing: border-box;
-  z-index: 3;
+  z-index: 10;
 }
 
 .planet-wrapper {
@@ -87,7 +87,7 @@ p {
   background-position: center;
   display: block;
   transition: transform 0.2s ease;
-  z-index: 2;
+  z-index: 10;
   border-radius: 50%;
 }
 
