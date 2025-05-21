@@ -13,13 +13,14 @@
       <div class="intro-content">
         <div class="intro-text">
           <h1>IN A GALAXY FAR FAR AWAY......</h1>
-          <p>There was a planet of happy stubblors; a species of alien that are small, round and full of curiosity! </p>
-          <button class="btn-next">NEXT</button>
+          <p>There was a planet of happy Stubblors </p>
+          <p>A species of alien that are small, round and full of curiosity! </p>
         </div>
         <div class="intro-visuals">
-          <img src="images/brokenPlanet.png" alt="Broken planet" class="intro-planet" />
-          <img src="images/alienPod.png" alt="Alien pod" class="intro-pod" />
+          <img src="images/Planet.png" alt="Planet" class="planet-img" />
+          <img src="images/Spaceship.png" alt="Spaceship pod" id="spaceshipPod" class="intro-pod" />
         </div>
+        <button class="btn-next">NEXT</button>
       </div>
     </div>
 
@@ -30,12 +31,12 @@
           <h1>BUT ONE DAY...</h1>
           <p>The planet was destroyed! And all the aliens that escaped needed a new home.</p>
           <p>Can you help them find a new habitat for their species?</p>
-          <button class="btn-next">START EXPLORING</button>
         </div>
         <div class="intro-visuals">
-          <img src="images/brokenPlanet.png" alt="Broken planet" class="intro-planet" />
-          <img src="images/alienPod.png" alt="Alien pod" class="intro-pod" />
+         <img src="images/PlanetBroken.png" alt="Planet" class="planet-img" />
+<img src="images/SpaceshipAll.png" alt="Spaceship pod" id="spaceshipPodAll" class="intro-pod" />
         </div>
+        <button class="btn-next">START EXPLORING</button>
       </div>
     </div>
 
@@ -53,26 +54,25 @@
 
     <input type="text" id="explorerName" placeholder="YOUR NAME" />
   </div>
-
-  <button class="btn-next btn-fixed">Next</button>
+  <button class="btn-next">NEXT</button>
 </div>
 
 
-    <!-- === SCREEN 2: GREETING === -->
-    <div class="screen">
-      <div class="intro-content">
-        <div class="intro-text">
-          <h1>WELCOME!</h1>
-          <p id="greetingText">Hello human, we will find a planet for my kind!</p>
-          <a href="index.html"><button class="btn-next">Next</button></a>
-        </div>
-        <div class="intro-visuals" id="selectedAlien">
-          <!-- Spaceship image gets inserted here via JS -->
-        </div>
-      </div>
+<!-- === SCREEN 2: GREETING === -->
+<div class="screen screen-greeting">
+  <div class="intro-content">
+    <div class="intro-text">
+      <h1>WELCOME!</h1>
+      <p id="greetingText">Hello human, we will find a planet for my kind!</p>
     </div>
 
+    <div class="intro-visuals" id="selectedAlien">
+      <!-- Spaceship image gets inserted here via JS -->
+    </div>
+
+    <a href="index.html"><button class="btn-next">NEXT</button></a>
   </div>
+</div>
 
   <script src="intro.js"></script>
 </body>
