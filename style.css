@@ -22,6 +22,18 @@ body, html {
   z-index: 3;
 }
 
+h1 {
+  font-size: 4rem;
+  font-weight: bold;
+  margin: 0 0 0.25rem 0;
+}
+
+p {
+  font-size: 2rem;
+  padding-top: 2rem;
+  margin: 0 0 0.75rem 0;
+}
+
 /* ==================== SOLAR SYSTEM ==================== */
 .solar-wrapper {
   position: relative;
@@ -123,13 +135,13 @@ body, html {
 /* ==================== INDEX ALIEN ==================== */
 .alien {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
+  bottom: -150px;
+  right: -20px;
   z-index: 5;
 }
 
 #selectedAlienImg {
-  width: 180px;
+  width: 780px;
   height: auto;
 }
 
@@ -182,16 +194,6 @@ body, html {
   border-radius: 8px;
   border: none;
 }
-
-/* ==================== BEGIN: INTRO SCREEN ADDITIONS ==================== */
-
-
-#selectedAlien {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 /* ==================== INTRO SCREEN LAYOUT ==================== */
 
 .intro-content {
@@ -214,33 +216,39 @@ body, html {
 }
 
 .intro-text h1 {
-  font-size: 2rem;
+  font-size: 4rem;
   font-weight: bold;
   margin: 0 0 0.25rem 0;
 }
 
 .intro-text p {
-  font-size: 1rem;
+  font-size: 2rem;
+  padding-top: 2rem;
   margin: 0 0 0.75rem 0;
 }
 
 
 
 .intro-visuals {
+  width: 600px; /* or whatever fixed width you want */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  flex: 1;
   gap: 2rem;
+
+  /* Align to the left */
+  position: relative;
+  left: 0;
 }
 
 .intro-planet {
-  width: 250px;
+  width: 600px;
 }
 
 .intro-pod {
   width: 200px;
+    padding-left: 20px;
 }
 
 /* === ALIEN SELECT STYLES === */
@@ -378,3 +386,21 @@ body, html {
   z-index: 10;
 }
 
+.restart-button {
+  position: absolute;
+  top: 50px;
+  right: 20px;
+  padding: 10px 16px;
+  font-size: 1rem;
+  background-color: #132d32;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  z-index: 1000;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}
+
+.restart-button:hover {
+  background-color: #1b4445;
+}

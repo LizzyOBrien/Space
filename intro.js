@@ -48,8 +48,9 @@ document.addEventListener("DOMContentLoaded", function () {
     `“Hello human, I’m ${explorerName}, with your help, I know we will find a new planet for my kind!”`;
 
   // Show the corresponding spaceship image (no alien image)
-  document.getElementById('selectedAlien').innerHTML =
-    `<img src="images/${spaceshipImage}" style="width: 250px;" alt="Spaceship" />`;
+ document.getElementById('selectedAlien').innerHTML =
+  `<img id="selectedAlienImg" src="images/${spaceshipImage}" alt="Spaceship" />`;
+
 
   nextScreen();
 }
