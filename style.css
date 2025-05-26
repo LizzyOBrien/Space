@@ -102,12 +102,53 @@ p {
   transform: translate(-50%, -50%);
   width: calc(100% + 40px);
   height: calc(100% + 40px);
-  background: radial-gradient(circle, rgba(143, 0, 255, 0.5) 0%, transparent 70%);
   border-radius: 50%;
   filter: blur(15px);
   opacity: 0;
   z-index: 1;
   transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Mercury */
+.mercury-glow {
+  background: radial-gradient(circle, rgba(200, 200, 200, 0.75) 0%, transparent 70%);
+}
+
+/* Venus */
+.venus-glow {
+  background: radial-gradient(circle, rgba(255, 185, 0, 0.75) 0%, transparent 70%);
+}
+
+/* Earth */
+.earth-glow {
+  background: radial-gradient(circle, rgba(0, 120, 255, 0.7) 0%, transparent 70%);
+}
+
+/* Mars */
+.mars-glow {
+  background: radial-gradient(circle, rgba(255, 50, 50, 0.75) 0%, transparent 70%);
+}
+
+/* Jupiter */
+.jupiter-glow {
+  background: radial-gradient(circle, rgba(255, 140, 0, 0.75) 0%, transparent 70%);
+}
+
+/* Saturn */
+.saturn-glow {
+  background: radial-gradient(circle, rgba(200, 180, 140, 0.7) 0%, transparent 70%);
+  width: calc(100% + 5px);
+  height: calc(100% + 5px);
+}
+
+/* Uranus */
+.uranus-glow {
+  background: radial-gradient(circle, rgba(100, 255, 255, 0.7) 0%, transparent 70%);
+}
+
+/* Neptune */
+.neptune-glow {
+  background: radial-gradient(circle, rgba(80, 80, 255, 0.7) 0%, transparent 70%);
 }
 
 .planet-glow.saturn-glow {
