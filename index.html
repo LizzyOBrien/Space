@@ -14,62 +14,67 @@
       <p>Which planet would you like to go to?</p>
     </header>
 
-    <button class="restart-button" onclick="location.href='start.html'">Restart Game</button>
+    <button class="restart-button" onclick="resetGame()">Restart Game</button>
 
     <main class="solar-wrapper">
       <div class="sun" aria-hidden="true"></div>
 
-      <div class="planets">
-                <!-- Mercury -->
-          <div class="planet-wrapper" data-name="Mercury">
-            <div class="planet-glow mercury-glow"></div>
-            <a href="mercury.html" class="planet mercury" ...></a>
-          </div>
+<div class="planets">
+  <!-- Mercury -->
+  <div class="planet-wrapper" data-name="Mercury">
+    <a href="mercury.html" class="planet mercury"></a>
+    <div class="planet-glow mercury-glow"></div>
+    <div class="planet-name">Mercury</div>
+  </div>
 
-          <!-- Venus -->
-          <div class="planet-wrapper" data-name="Venus">
-            <div class="planet-glow venus-glow"></div>
-            <a href="venus.html" class="planet venus" ...></a>
-          </div>
+  <!-- Venus -->
+  <div class="planet-wrapper" data-name="Venus">
+    <a href="venus.html" class="planet venus"></a>
+    <div class="planet-glow venus-glow"></div>
+    <div class="planet-name">Venus</div>
+  </div>
 
-          <!-- Earth -->
-          <div class="planet-wrapper" data-name="Earth">
-            <div class="planet-glow earth-glow"></div>
-            <a href="earth.html" class="planet earth" ...></a>
-          </div>
+  <!-- Earth -->
+  <div class="planet-wrapper" data-name="Earth">
+    <a href="earth.html" class="planet earth"></a>
+    <div class="planet-glow earth-glow"></div>
+    <div class="planet-name">Earth</div>
+  </div>
 
-          <!-- Mars -->
-          <div class="planet-wrapper" data-name="Mars">
-            <div class="planet-glow mars-glow"></div>
-            <a href="mars.html" class="planet mars" ...></a>
-          </div>
+  <!-- Mars -->
+  <div class="planet-wrapper" data-name="Mars">
+    <a href="mars.html" class="planet mars"></a>
+    <div class="planet-glow mars-glow"></div>
+    <div class="planet-name">Mars</div>
+  </div>
 
-          <!-- Jupiter -->
-          <div class="planet-wrapper" data-name="Jupiter">
-            <div class="planet-glow jupiter-glow"></div>
-            <a href="jupiter.html" class="planet jupiter" ...></a>
-          </div>
+  <!-- Jupiter -->
+  <div class="planet-wrapper" data-name="Jupiter">
+    <a href="jupiter.html" class="planet jupiter"></a>
+    <div class="planet-glow jupiter-glow"></div>
+    <div class="planet-name">Jupiter</div>
+  </div>
 
-          <!-- Saturn -->
-          <div class="planet-wrapper" data-name="Saturn">
-            <div class="planet-glow saturn-glow"></div>
-            <a href="saturn.html" class="planet saturn" ...></a>
-          </div>
+  <!-- Saturn -->
+  <div class="planet-wrapper" data-name="Saturn">
+    <a href="saturn.html" class="planet saturn"></a>
+    <div class="planet-glow saturn-glow"></div>
+    <div class="planet-name">Saturn</div>
+  </div>
 
-          <!-- Uranus -->
-          <div class="planet-wrapper" data-name="Uranus">
-            <div class="planet-glow uranus-glow"></div>
-            <a href="uranus.html" class="planet uranus" ...></a>
-          </div>
+  <!-- Uranus -->
+  <div class="planet-wrapper" data-name="Uranus">
+    <a href="uranus.html" class="planet uranus"></a>
+    <div class="planet-glow uranus-glow"></div>
+    <div class="planet-name">Uranus</div>
+  </div>
 
-          <!-- Neptune -->
-          <div class="planet-wrapper" data-name="Neptune">
-            <div class="planet-glow neptune-glow"></div>
-            <a href="neptune.html" class="planet neptune" ...></a>
-          </div>
-
-      </div>
-    </main>
+  <!-- Neptune -->
+  <div class="planet-wrapper" data-name="Neptune">
+    <a href="neptune.html" class="planet neptune"></a>
+    <div class="planet-glow neptune-glow"></
+  </div>
+</div>
 
     <!-- Alien -->
     <div class="alien" role="img" aria-label="Selected alien spaceship">
@@ -78,14 +83,36 @@
   </div>
 
   <script>
+    // Show selected alien spaceship
     const selectedAlien = localStorage.getItem('selectedAlien');
-
     if (selectedAlien) {
       const alienNumber = selectedAlien.match(/\d+/)?.[0];
       const spaceshipImage = `images/AlienSpaceship${alienNumber}.png`;
       document.getElementById('selectedAlienImg').src = spaceshipImage;
     } else {
       document.getElementById('selectedAlienImg').src = "images/defaultAlien.png";
+    }
+
+    // Gray out visited planets
+    document.addEventListener("DOMContentLoaded", () => {
+      const visited = JSON.parse(localStorage.getItem('visitedPlanets')) || {};
+      Object.keys(visited).forEach((planet) => {
+        if (visited[planet]) {
+          const selector = `.planet-wrapper[data-name="${planet}"] .planet`;
+          const planetElement = document.querySelector(selector);
+          if (planetElement) {
+            planetElement.classList.add("grayed-out");
+          }
+        }
+      });
+    });
+
+    // ✅ Reset game and clear saved progress
+    function resetGame() {
+      localStorage.removeItem("visitedPlanets");
+      localStorage.removeItem("selectedAlien");
+      localStorage.removeItem("selectedSpaceship");
+      window.location.href = "start.html";
     }
   </script>
 </body>
