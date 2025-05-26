@@ -9,7 +9,13 @@ document.addEventListener("DOMContentLoaded", function () {
   const item = document.querySelector(".item");
   const itemOnAlien = document.querySelector(".item-on-alien");
   const itemBox = document.querySelector(".item-box");
-
+  const planetBackground = document.getElementById("planet-background");
+  const defaultImage = planetBackground.getAttribute("data-default-image");
+  const expandedImage = planetBackground.getAttribute("data-expanded-image");
+  
+  planetBackground.style.setProperty("--default-image", `url('${defaultImage}')`);
+  planetBackground.style.setProperty("--expanded-image", `url('${expandedImage}')`);
+  
   // Show only the current screen
   function showScreen(index) {
     screens.forEach((screen, i) => {
@@ -20,8 +26,13 @@ document.addEventListener("DOMContentLoaded", function () {
     itemBox.style.display = index === 3 ? "block" : "none";
   }
 
+  // Planet expands and show surface
+function expandPlanet() {
+  const background = document.getElementById("planet-background");
+  background.classList.add("planet-expanded");
+}
+
   // Spaceship animations
-  
 function spaceshipFlyIn() {
   spaceship.classList.remove("fly-out", "from-top", "park-top-left");
   spaceship.classList.add("fly-in");
@@ -41,39 +52,25 @@ function spaceshipEnterFromTop() {
   }, 100);
 }
 
-  // Planet expands and show surface
-function expandPlanet() {
-  const background = document.getElementById("planet-background");
-  background.classList.add("planet-expanded");
-}
-
-  function animatePlanetZoom() {
-    const planetBackground = document.getElementById("planet-background");
-    planetBackground.style.backgroundImage = "url('images/MercuryB.png')";
-
-    const planetImg = document.getElementById("planet");
-    planetImg.classList.add("planet-zoom");
-
-  // Fade out the first planet image
-  setTimeout(() => {
-    planetImg.style.opacity = "0";
-  }, 1000);
-}
   //********Buttons**********//
   nextButtons.forEach((button) => {
     button.addEventListener("click", () => {
       if (currentScreen === 0) {
         spaceshipFlyOut();
         setTimeout(() => {
-          expandPlanet();
+          document.getElementById("planet-background").classList.add("expand-before");
           setTimeout(() => {
+            expandPlanet();
             spaceshipEnterFromTop();
-          }, 1500);
-        }, 1000);
+            currentScreen++;
+            showScreen(currentScreen);
+          }, 10); // wait for planet fade
+        }, 50); // wait for spaceship to fly out
+      
+      } else {
+        currentScreen++;
+        showScreen(currentScreen);
       }
-
-      currentScreen++;
-      showScreen(currentScreen);
     });
   });
 
