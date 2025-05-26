@@ -318,7 +318,7 @@ p {
 #spaceshipPod {
   position: absolute;
   bottom: 2%; 
-  right: 1%;
+  left: 85%;
   width: 20%; 
 }
 
