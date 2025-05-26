@@ -109,6 +109,13 @@ p {
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
+.planet.grayed-out {
+  filter: grayscale(100%) brightness(60%);
+  pointer-events: none;
+  opacity: 0.6;
+  cursor: default;
+}
+
 /* Mercury */
 .mercury-glow {
   background: radial-gradient(circle, rgba(200, 200, 200, 0.75) 0%, transparent 70%);
@@ -156,31 +163,47 @@ p {
   height: calc(100% + 5px);
 }
 
-.planet-wrapper:hover .planet-glow {
+/* === Planet Hover Effects (Only if NOT grayed out) === */
+
+/* Glow effect */
+.planet-wrapper:hover .planet:not(.grayed-out) + .planet-glow {
   opacity: 5;
   transform: translate(-50%, -50%) scale(1.5);
 }
 
-.planet-wrapper:hover .planet {
+/* Scale effect */
+.planet-wrapper:hover .planet:not(.grayed-out) {
   transform: scale(1.2);
 }
 
-.planet-wrapper::after {
-  content: attr(data-name);
+/* === Planet Name Label === */
+
+/* Add this HTML inside .planet-wrapper:
+   <div class="planet-name">Mercury</div> (or Venus, etc.)
+*/
+
+.planet-name {
   position: absolute;
   top: 130%;
-  color: white;
   font-size: 1.5rem;
+  color: white;
   opacity: 0;
-  transform: translateY(3px);
   transition: opacity 0.2s ease, transform 0.2s ease;
+  transform: translateY(3px);
   pointer-events: none;
 }
 
-.planet-wrapper:hover::after {
+/* Show name on hover */
+.planet-wrapper:hover .planet-name {
   opacity: 1;
   transform: translateY(0);
 }
+
+/* Hide name if planet is grayed out */
+.planet-wrapper .planet.grayed-out ~ .planet-name {
+  opacity: 0 !important;
+}
+
 
 /* ==================== INDEX ALIEN ==================== */
 .alien {
@@ -238,20 +261,18 @@ p {
   padding: 2rem;
   width: 100%;
   box-sizing: border-box;
-  overflow: hidden; /* Prevents scrolling */
+  overflow: hidden;
 }
 
 .alien-select img {
   flex: 1 1 0;
   max-width: 100%;
   height: auto;
-  min-width: 0; /* allows shrinking below original min */
+  min-width: 0; 
   transition: transform 0.3s ease;
   border: 2px solid transparent;
   border-radius: 12px;
 }
-
-
 
 .alien-select img.selected {
   transform: scale(1.2);
@@ -380,7 +401,6 @@ p {
   border: 2px solid transparent;
   border-radius: 12px;
 }
-
 
 .alien-select img.selected {
   transform: scale(1.2);

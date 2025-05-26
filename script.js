@@ -85,16 +85,28 @@ function spaceshipEnterFromTop() {
     });
   }
   
-  // leave button - fly out with delay
   if (leaveButton) {
-    leaveButton.addEventListener("click", () => {
-      spaceship.classList.remove("from-top", "park-top-left");
-      spaceship.classList.add("fly-up-exit");
-      setTimeout(() => {
-        window.location.href = "index.html";
-      }, 1500);
-    });
-  }
+  leaveButton.addEventListener("click", () => {
+    // Get planet name dynamically from <body class="venus-page"> etc.
+    const bodyClass = document.body.classList[0]; // e.g., "venus-page"
+    const planetKey = bodyClass.replace("-page", ""); // "venus"
+    const formattedPlanet = planetKey.charAt(0).toUpperCase() + planetKey.slice(1); // "Venus"
+
+    // Save this planet as visited
+    const visited = JSON.parse(localStorage.getItem('visitedPlanets')) || {};
+    visited[formattedPlanet] = true;
+    localStorage.setItem('visitedPlanets', JSON.stringify(visited));
+
+    // Spaceship animation + redirect
+    spaceship.classList.remove("from-top", "park-top-left");
+    spaceship.classList.add("fly-up-exit");
+
+    setTimeout(() => {
+      window.location.href = "index.html";
+    }, 1500);
+  });
+}
+
 
   showScreen(currentScreen);
   spaceshipFlyIn();
