@@ -1,75 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Character encoding and mobile responsiveness -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mercury</title>
+  <title>Mars</title>
   <link rel="stylesheet" href="planet.css" />
 </head>
-<body class="planet-page"
-data-planet-name="MARS"
-data-bg="images/Mars.png"
-data-bg-expanded="images/MarsB.png"
-data-item="images/Mask.png"
-data-item-name="face mask">
+<body class="mars-page">
 
-  <div id="planet-background" class="planet-mars"></div>
-
-  <!-- container for mercury before expand -->
-  <div class="planet-screen planet-mars"></div>
+  <div id="planet-background"
+    class="planet-screen"
+    data-default-image="images/Mars.png"
+    data-expanded-image="images/MarsB.png">
+  </div>
 
   <!-- Alien flies in/out -->
   <div class="spaceship fly-in">
     <img src="images/AlienSpaceship1.png" alt="Alien in spaceship" />
-    <img class="item-on-alien" src="image/Mask.png" alt="face mask"/>
+    <img class="item-on-alien" src="images/Mask.png" alt="face mask"/>
   </div>
 
-<div class="item-box item-mars">
-  <div class="item-content item">
-    <img src="images/Mask.png" alt="face mask">
+  <div class="item-box item-mars">
+    <div class="item-content item">
+      <img src="images/Mask.png" alt="face mask">
+    </div>
   </div>
-</div>
 
-    <!-- "screen" is the dialogue box -->
-    <div class="screen">
-      <div class="dialogue">
-        <h1>MARS</h1>
-        <p>This planet looks so red!</p>
-        <button class="btn-next">Continue</button>
-      </div>
+  <!-- "screen" is the dialogue box -->
+  <div class="screen">
+    <div class="dialogue">
+      <h1>MARS</h1>
+      <p>This planet looks so red!</p>
+      <button class="btn-next">Continue</button>
     </div>
+  </div>
 
-    <div class="screen">
-      <div class="dialogue">
-        <h1>MARS</h1>
-        <p>The sky has this reddish tint, and the ground’s just rocks and sand everywhere.</p>
-        <button class="btn-next">Continue</button>
-      </div>
+  <div class="screen">
+    <div class="dialogue">
+      <h1>MARS</h1>
+      <p>The sky has this reddish tint, and the ground’s just rocks and sand everywhere.</p>
+      <button class="btn-next">Continue</button>
     </div>
+  </div>
 
-    <div class="screen">
-      <div class="dialogue">
-        <h1>MARS</h1>
-        <p>Ok this place is super dusty... way to dusty</p>
-        <button class="btn-next">Continue</button>
-      </div>
+  <div class="screen">
+    <div class="dialogue">
+      <h1>MARS</h1>
+      <p>Ok this place is super dusty... way too dusty.</p>
+      <button class="btn-next">Continue</button>
     </div>
+  </div>
 
-    <div class="screen">
-      <div class="dialogue">
-        <h1>MARS</h1>
-        <p>I think I should throw on a mask so I don't choke on the dust.</p>
-        <button class="btn-next wear-btn">Collect</button>
-      </div>
+  <div class="screen">
+    <div class="dialogue">
+      <h1>MARS</h1>
+      <p>I think I should throw on a mask so I don't choke on the dust.</p>
+      <button class="btn-next wear-btn">Collect</button>
     </div>
+  </div>
 
-    <div class="screen">
-      <div class="dialogue">
-        <h1>MARS</h1>
-        <p>Let’s keep moving—maybe the next stop is more exciting </p>
-        <button class="btn-next btn-leave">Leave</button>
-      </div>
+  <div class="screen">
+    <div class="dialogue">
+      <h1>MARS</h1>
+      <p>Let’s keep moving—maybe the next stop is more exciting.</p>
+      <button class="btn-next btn-leave">Leave</button>
     </div>
   </div>
 
