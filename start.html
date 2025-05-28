@@ -60,8 +60,14 @@
       </div>
     </main>
      
-    <a href="begin.html" class="btn-next">START EXPLORING</a>
+   <a href="begin.html" class="btn-next" onclick="clearUserData()">START EXPLORING</a>
 
   </div>
+  <script>
+    function clearUserData() {
+      localStorage.clear();
+      sessionStorage.clear();
+    }
+  </script>
 </body>
 </html>

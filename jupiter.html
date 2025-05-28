@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Character encoding and mobile responsiveness -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Jupiter</title>
   <link rel="stylesheet" href="planet.css" />
 </head>
-<body class="Jupiter-page"></body>
+<body class="Jupiter-page">
 
   <div id="planet-background"
     class="planet-screen"
@@ -21,52 +20,56 @@
     <img class="item-on-alien" src="images/JetPack.png" alt="Jet pack"/>
   </div> 
 
-<div class="item-box item-">
-  <div class="item-content item">
-    <img src="images/JetPack.png" alt="Jet pack">
+  <div class="item-box item-">
+    <div class="item-content item">
+      <img src="images/JetPack.png" alt="Jet pack">
+    </div>
   </div>
-</div>
 
-    <!-- "screen" is the dialogue box -->
-    <div class="screen">
-      <div class="dialogue">
-        <h1>JUPITER</h1>
-        <p>Whoa… this planet is huge.</p>
-        <button class="btn-next">Continue</button>
-      </div>
+  <!-- Dialogue screens -->
+  <div class="screen">
+    <div class="dialogue">
+      <h1>JUPITER</h1>
+      <p>Whoa… this planet is huge.</p>
+      <button class="btn-next">CONTINUE</button>
     </div>
+    <button class="btn-home" onclick="goBack()">BACK TO SPACE</button>
+  </div>
 
-    <div class="screen">
-      <div class="dialogue">
-        <h1>JUPITER</h1>
-        <p>There’s no ground—just endless clouds and storms swirling like crazy.</p>
-        <button class="btn-next">Continue</button>
-      </div>
+  <div class="screen">
+    <div class="dialogue">
+      <h1>JUPITER</h1>
+      <p>There’s no ground—just endless clouds and storms swirling like crazy.</p>
+      <button class="btn-next">CONTINUE</button>
     </div>
+    <button class="btn-home" onclick="goBack()">BACK TO SPACE</button>
+  </div>
 
-    <div class="screen">
-      <div class="dialogue">
-        <h1>JUPITER</h1>
-        <p>The wind's so strong, it’s hard to even stay steady.</p>
-        <button class="btn-next">Continue</button>
-      </div>
+  <div class="screen">
+    <div class="dialogue">
+      <h1>JUPITER</h1>
+      <p>The wind's so strong, it’s hard to even stay steady.</p>
+      <button class="btn-next">CONTINUE</button>
     </div>
+    <button class="btn-home" onclick="goBack()">BACK TO SPACE</button>
+  </div>
 
-    <div class="screen">
-      <div class="dialogue">
-        <h1>JUPITER</h1>
-        <p>Good thing i have these jet boosters just to break free from the pull of this place.</p>
-        <button class="btn-next wear-btn">Collect</button>
-      </div>
+  <div class="screen">
+    <div class="dialogue">
+      <h1>JUPITER</h1>
+      <p>Good thing I have these jet boosters just to break free from the pull of this place.</p>
+      <button class="btn-next wear-btn">COLLECT</button>
     </div>
+    <button class="btn-home" onclick="goBack()">BACK TO SPACE</button>
+  </div>
 
-    <div class="screen">
-      <div class="dialogue">
-        <h1>JUPITER</h1>
-        <p>Jet boosters on—let’s get outta here and see what’s next!</p>
-        <button class="btn-next btn-leave">Leave</button>
-      </div>
+  <div class="screen">
+    <div class="dialogue">
+      <h1>JUPITER</h1>
+      <p>Jet boosters on—let’s get outta here and see what’s next!</p>
+      <button class="btn-next btn-leave">BACK TO SPACE</button>
     </div>
+    <button class="btn-home" onclick="goBack()">BACK TO SPACE</button>
   </div>
 
   <script src="script.js"></script>
