@@ -80,40 +80,64 @@
   <div class="alien" role="img" aria-label="Selected alien spaceship">
       <img id="selectedAlienImg" src="" alt="Your Spaceship" />
     </div>
+
+    <div id="allVisitedContainer" class="all-visited hidden">
+      <p class="all-visited-text">
+        We explored every planet and even got something special from each one!<br>
+        But which one is the perfect place to live?
+      </p>
+      <button class="all-visited-button" onclick="window.location.href='finalscreen.html'">
+        Choose the Best Planet
+      </button>
+    </div>
+
   </div>
 
   <script>
-    // Show selected alien spaceship
-    const selectedAlien = localStorage.getItem('selectedAlien');
-    if (selectedAlien) {
-      const alienNumber = selectedAlien.match(/\d+/)?.[0];
-      const spaceshipImage = `images/AlienSpaceship${alienNumber}.png`;
-      document.getElementById('selectedAlienImg').src = spaceshipImage;
-    } else {
-      document.getElementById('selectedAlienImg').src = "images/defaultAlien.png";
-    }
+  // Show selected alien spaceship
+  const selectedAlien = localStorage.getItem('selectedAlien');
+  if (selectedAlien) {
+    const alienNumber = selectedAlien.match(/\d+/)?.[0];
+    const spaceshipImage = `images/AlienSpaceship${alienNumber}.png`;
+    document.getElementById('selectedAlienImg').src = spaceshipImage;
+  } else {
+    document.getElementById('selectedAlienImg').src = "images/defaultAlien.png";
+  }
 
-    // Gray out visited planets
-    document.addEventListener("DOMContentLoaded", () => {
-      const visited = JSON.parse(localStorage.getItem('visitedPlanets')) || {};
-      Object.keys(visited).forEach((planet) => {
-        if (visited[planet]) {
-          const selector = `.planet-wrapper[data-name="${planet}"] .planet`;
-          const planetElement = document.querySelector(selector);
-          if (planetElement) {
-            planetElement.classList.add("grayed-out");
-          }
+  // Gray out visited planets and check for completion
+  document.addEventListener("DOMContentLoaded", () => {
+    const visited = JSON.parse(localStorage.getItem('visitedPlanets')) || {};
+    const allPlanets = [
+      "Mercury", "Venus", "Earth", "Mars", "Jupiter",
+      "Saturn", "Uranus", "Neptune"
+    ];
+    let visitedCount = 0;
+
+    allPlanets.forEach((planet) => {
+      if (visited[planet]) {
+        const selector = `.planet-wrapper[data-name="${planet}"] .planet`;
+        const planetElement = document.querySelector(selector);
+        if (planetElement) {
+          planetElement.classList.add("grayed-out");
         }
-      });
+        visitedCount++;
+      }
     });
 
-    // ✅ Reset game and clear saved progress
-    function resetGame() {
-      localStorage.removeItem("visitedPlanets");
-      localStorage.removeItem("selectedAlien");
-      localStorage.removeItem("selectedSpaceship");
-      window.location.href = "start.html";
+    // Show the final message + button if all planets are visited
+    if (visitedCount === allPlanets.length) {
+      document.getElementById("allVisitedContainer").classList.remove("hidden");
     }
-  </script>
+  });
+
+  // ✅ Reset game and clear saved progress
+  function resetGame() {
+    localStorage.removeItem("visitedPlanets");
+    localStorage.removeItem("selectedAlien");
+    localStorage.removeItem("selectedSpaceship");
+    window.location.href = "start.html";
+  }
+</script>
+
 </body>
 </html>
