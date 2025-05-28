@@ -5,20 +5,72 @@
   <title>Congrats!</title>
   <link rel="stylesheet" href="planet.css">
   <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: inherit;
+      color: #ffffff;
+    }
+
     .final-heading {
       position: absolute;
-      top: 40%;
-      left: 10%;
-      font-size: 2.5rem;
+      top: 10%;
+      left: 5%;
+      font-size: clamp(1.5rem, 3vw, 3rem);
       font-weight: bold;
-      color: #ffffff;
-      font-family: inherit;
+      z-index: 2;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
     }
 
     .dialogue-container {
       position: absolute;
-      top: 45%; /* just below the heading */
-      left: 10%;
+      top: 20%;
+      left: 5%;
+      max-width: 90%;
+      font-size: clamp(1rem, 2.5vw, 1.5rem);
+      z-index: 2;
+    }
+
+    .dialogue button {
+      margin-top: 1rem;
+      padding: 0.5rem 1.5rem;
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      border: none;
+      border-radius: 0.5rem;
+      background-color: #ffc107;
+      color: black;
+      cursor: pointer;
+    }
+
+    .spaceship {
+      position: absolute;
+      bottom: 5%;
+      right: 5%;
+      width: 30vw;
+      max-width: 600px;
+      z-index: 1;
+    }
+
+    .spaceship img {
+      width: 100%;
+      height: auto;
+    }
+
+    @media (max-width: 600px) {
+      .dialogue-container {
+        top: 25%;
+      }
+
+      .final-heading {
+        top: 5%;
+        font-size: 1.5rem;
+      }
+
+      .spaceship {
+        width: 60vw;
+        right: 2%;
+        bottom: 2%;
+      }
     }
   </style>
 </head>
@@ -27,7 +79,7 @@
   <div class="final-heading">CONGRATS, YOU FINISHED THE JOURNEY!</div>
 
   <!-- Spaceship with aliens -->
-  <div class="spaceship" style="bottom: 30%; right: 10%; width: 600px;">
+  <div class="spaceship">
     <img src="images/SpaceshipAll.png" alt="Spaceship with 5 aliens">
   </div>
 
@@ -38,16 +90,16 @@
     </div>
   </div>
 
-</body>
-<script>
-  const urlParams = new URLSearchParams(window.location.search);
-  const planet = urlParams.get('planet');
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const planet = urlParams.get('planet');
 
-  if (planet) {
-    const backgroundImage = `images/${planet}B.png`;
-    document.body.style.backgroundImage = `url('${backgroundImage}')`;
-    document.body.style.backgroundSize = 'cover';
-    document.body.style.backgroundPosition = 'center';
-  }
-</script>
+    if (planet) {
+      const backgroundImage = `images/${planet}B.png`;
+      document.body.style.backgroundImage = `url('${backgroundImage}')`;
+      document.body.style.backgroundSize = 'cover';
+      document.body.style.backgroundPosition = 'center';
+    }
+  </script>
+</body>
 </html>
