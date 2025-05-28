@@ -64,8 +64,8 @@ function spaceshipEnterFromTop() {
             spaceshipEnterFromTop();
             currentScreen++;
             showScreen(currentScreen);
-          }, 10); // wait for planet fade
-        }, 50); // wait for spaceship to fly out
+          }, 100); // wait for planet fade
+        }, 500); // wait for spaceship to fly out
       
       } else {
         currentScreen++;
