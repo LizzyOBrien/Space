@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Character encoding and mobile responsiveness -->
+  <!-- Character encoding and mobile responsiveness -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Uranus</title>
   <link rel="stylesheet" href="planet.css" />
 </head>
-<body class="Uranus-page"></body>
+<body class="Uranus-page">
 
   <div id="planet-background"
     class="planet-screen"
@@ -21,52 +21,57 @@
     <img class="item-on-alien" src="images/Scarf.png" alt="red scarf"/>
   </div> 
 
-<div class="item-box item-uranus">
-  <div class="item-content item">
-    <img src="images/Scarf.png" alt="Red scarf">
+  <div class="item-box item-uranus">
+    <div class="item-content item">
+      <img src="images/Scarf.png" alt="Red scarf">
+    </div>
   </div>
-</div>
 
-    <!-- "screen" is the dialogue box -->
-    <div class="screen">
-      <div class="dialogue">
-        <h1>URANUS</h1>
-        <p>This planet is sideways?</p>
-        <button class="btn-next">Continue</button>
-      </div>
-    </div>
+  <!-- Dialogue Screens with BACK TO SPACE buttons -->
 
-    <div class="screen">
-      <div class="dialogue">
-        <h1>URANUS</h1>
-        <p>This planet spins like it’s rolling around instead of straight up like the others.</p>
-        <button class="btn-next">Continue</button>
-      </div>
+  <div class="screen">
+    <div class="dialogue">
+      <h1>URANUS</h1>
+      <p>This planet is sideways?</p>
+      <button class="btn-next">Continue</button>
     </div>
+    <button class="btn-home" onclick="goBack()">BACK TO SPACE</button>
+  </div>
 
-    <div class="screen">
-      <div class="dialogue">
-        <h1>URANUS</h1>
-        <p>This is definitely the coldest planet! Im already turning to ice.</p>
-        <button class="btn-next">Continue</button>
-      </div>
+  <div class="screen">
+    <div class="dialogue">
+      <h1>URANUS</h1>
+      <p>This planet spins like it’s rolling around instead of straight up like the others.</p>
+      <button class="btn-next">Continue</button>
     </div>
+    <button class="btn-home" onclick="goBack()">BACK TO SPACE</button>
+  </div>
 
-    <div class="screen">
-      <div class="dialogue">
-        <h1>URANUS</h1>
-        <p>I’m glad I found this scarf. It’s freezing out here!</p>
-        <button class="btn-next wear-btn">Collect</button>
-      </div>
+  <div class="screen">
+    <div class="dialogue">
+      <h1>URANUS</h1>
+      <p>This is definitely the coldest planet! I’m already turning to ice.</p>
+      <button class="btn-next">Continue</button>
     </div>
+    <button class="btn-home" onclick="goBack()">BACK TO SPACE</button>
+  </div>
 
-    <div class="screen">
-      <div class="dialogue">
-        <h1>URANUS</h1>
-        <p>This planet’s way too chilly for me — time to keep moving!</p>
-        <button class="btn-next btn-leave">Leave</button>
-      </div>
+  <div class="screen">
+    <div class="dialogue">
+      <h1>URANUS</h1>
+      <p>I’m glad I found this scarf. It’s freezing out here!</p>
+      <button class="btn-next wear-btn">Collect</button>
     </div>
+    <button class="btn-home" onclick="goBack()">BACK TO SPACE</button>
+  </div>
+
+  <div class="screen">
+    <div class="dialogue">
+      <h1>URANUS</h1>
+      <p>This planet’s way too chilly for me — time to keep moving!</p>
+      <button class="btn-next btn-leave">Leave</button>
+    </div>
+    <button class="btn-home" onclick="goBack()">BACK TO SPACE</button>
   </div>
 
   <script src="script.js"></script>

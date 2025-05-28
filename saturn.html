@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Character encoding and mobile responsiveness -->
+  <!-- Character encoding and mobile responsiveness -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Saturn</title>
   <link rel="stylesheet" href="planet.css" />
 </head>
-<body class="Saturn-page"></body>
+<body class="Saturn-page">
 
   <div id="planet-background"
     class="planet-screen"
@@ -21,53 +21,57 @@
     <img class="item-on-alien" src="images/Ring.png" alt="Golden ring"/>
   </div> 
 
-<div class="item-box item-saturn">
-  <div class="item-content item">
-    <img src="images/Ring.png" alt="Golden ring">
+  <div class="item-box item-saturn">
+    <div class="item-content item">
+      <img src="images/Ring.png" alt="Golden ring">
+    </div>
   </div>
-</div>
 
+  <!-- Dialogue Screens with BACK TO SPACE buttons -->
 
-    <!-- "screen" is the dialogue box -->
-    <div class="screen">
-      <div class="dialogue">
-        <h1>SATURN</h1>
-        <p>This planet has two rings around it!</p>
-        <button class="btn-next">Continue</button>
-      </div>
+  <div class="screen">
+    <div class="dialogue">
+      <h1>SATURN</h1>
+      <p>This planet has two rings around it!</p>
+      <button class="btn-next">Continue</button>
     </div>
+    <button class="btn-home" onclick="goBack()">BACK TO SPACE</button>
+  </div>
 
-    <div class="screen">
-      <div class="dialogue">
-        <h1>SATURN</h1>
-        <p>This planet is super huge, look at those giant rings spinning around us made of ice and rock!</p>
-        <button class="btn-next">Continue</button>
-      </div>
+  <div class="screen">
+    <div class="dialogue">
+      <h1>SATURN</h1>
+      <p>This planet is super huge, look at those giant rings spinning around us made of ice and rock!</p>
+      <button class="btn-next">Continue</button>
     </div>
+    <button class="btn-home" onclick="goBack()">BACK TO SPACE</button>
+  </div>
 
-    <div class="screen">
-      <div class="dialogue">
-        <h1>SATURN</h1>
-        <p>Those rings are so cool, it’s like a space hula hoop!</p>
-        <button class="btn-next">Continue</button>
-      </div>
+  <div class="screen">
+    <div class="dialogue">
+      <h1>SATURN</h1>
+      <p>Those rings are so cool, it’s like a space hula hoop!</p>
+      <button class="btn-next">Continue</button>
     </div>
+    <button class="btn-home" onclick="goBack()">BACK TO SPACE</button>
+  </div>
 
-    <div class="screen">
-      <div class="dialogue">
-        <h1>SATURN</h1>
-        <p>I found this ring, now I’ve got a piece of this planet to take with me.</p>
-        <button class="btn-next wear-btn">Collect</button>
-      </div>
+  <div class="screen">
+    <div class="dialogue">
+      <h1>SATURN</h1>
+      <p>I found this ring, now I’ve got a piece of this planet to take with me.</p>
+      <button class="btn-next wear-btn">Collect</button>
     </div>
+    <button class="btn-home" onclick="goBack()">BACK TO SPACE</button>
+  </div>
 
-    <div class="screen">
-      <div class="dialogue">
-        <h1>SATURN</h1>
-        <p>We should move on to the next planet before those rings make me dizzy.</p>
-        <button class="btn-next btn-leave">Leave</button>
-      </div>
+  <div class="screen">
+    <div class="dialogue">
+      <h1>SATURN</h1>
+      <p>We should move on to the next planet before those rings make me dizzy.</p>
+      <button class="btn-next btn-leave">Leave</button>
     </div>
+    <button class="btn-home" onclick="goBack()">BACK TO SPACE</button>
   </div>
 
   <script src="script.js"></script>

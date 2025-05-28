@@ -7,7 +7,6 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <audio id="rumbleSound" src="sounds/rumble.mp3" preload="auto"></audio>
   <img src="images/Explosion.png" alt="Explosion" id="explosionEffect" />
 
   <div class="page-container">
@@ -85,14 +84,6 @@
     function goBack() {
       history.back();
     }
-
-    document.querySelectorAll('.btn-next').forEach(button => {
-      button.addEventListener('click', () => {
-        const rumbleSound = document.getElementById('rumbleSound');
-        rumbleSound.currentTime = 0;
-        rumbleSound.play();
-      });
-    });
   </script>
 
   <script src="intro.js"></script>

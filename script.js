@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
   let currentScreen = 0;
   const screens = document.querySelectorAll(".screen");
   const nextButtons = document.querySelectorAll(".btn-next");
+  const backButtons = document.querySelectorAll(".btn-back");
   const wearButton = document.querySelector(".wear-btn");
   const leaveButton = document.querySelector(".btn-leave");
   const spaceship = document.querySelector(".spaceship");
@@ -12,47 +13,47 @@ document.addEventListener("DOMContentLoaded", function () {
   const planetBackground = document.getElementById("planet-background");
   const defaultImage = planetBackground.getAttribute("data-default-image");
   const expandedImage = planetBackground.getAttribute("data-expanded-image");
-  
+
   planetBackground.style.setProperty("--default-image", `url('${defaultImage}')`);
   planetBackground.style.setProperty("--expanded-image", `url('${expandedImage}')`);
-  
+
   // Show only the current screen
   function showScreen(index) {
     screens.forEach((screen, i) => {
       screen.style.display = i === index ? "flex" : "none";
     });
-  
+
     // Show item box only on screen 3
     itemBox.style.display = index === 3 ? "block" : "none";
   }
 
   // Planet expands and show surface
-function expandPlanet() {
-  const background = document.getElementById("planet-background");
-  background.classList.add("planet-expanded");
-}
+  function expandPlanet() {
+    const background = document.getElementById("planet-background");
+    background.classList.add("planet-expanded");
+  }
 
   // Spaceship animations
-function spaceshipFlyIn() {
-  spaceship.classList.remove("fly-out", "from-top", "park-top-left");
-  spaceship.classList.add("fly-in");
-}
+  function spaceshipFlyIn() {
+    spaceship.classList.remove("fly-out", "from-top", "park-top-left");
+    spaceship.classList.add("fly-in");
+  }
 
-function spaceshipFlyOut() {
-  spaceship.classList.remove("fly-in", "from-top", "park-top-left");
-  spaceship.classList.add("fly-out");
-}
+  function spaceshipFlyOut() {
+    spaceship.classList.remove("fly-in", "from-top", "park-top-left");
+    spaceship.classList.add("fly-out");
+  }
 
-function spaceshipEnterFromTop() {
-  spaceship.classList.remove("fly-out", "fly-in");
-  spaceship.classList.add("from-top");
+  function spaceshipEnterFromTop() {
+    spaceship.classList.remove("fly-out", "fly-in");
+    spaceship.classList.add("from-top");
 
-  setTimeout(() => {
-    spaceship.classList.add("park-top-left");
-  }, 100);
-}
+    setTimeout(() => {
+      spaceship.classList.add("park-top-left");
+    }, 100);
+  }
 
-  //********Buttons**********//
+  //********Next Buttons**********//
   nextButtons.forEach((button) => {
     button.addEventListener("click", () => {
       if (currentScreen === 0) {
@@ -64,9 +65,8 @@ function spaceshipEnterFromTop() {
             spaceshipEnterFromTop();
             currentScreen++;
             showScreen(currentScreen);
-          }, 100); // wait for planet fade
-        }, 500); // wait for spaceship to fly out
-      
+          }, 100);
+        }, 500);
       } else {
         currentScreen++;
         showScreen(currentScreen);
@@ -74,7 +74,7 @@ function spaceshipEnterFromTop() {
     });
   });
 
-  //Wear button
+  // Wear button
   if (wearButton) {
     wearButton.addEventListener("click", () => {
       itemBox.classList.add("wear-animation");
@@ -84,29 +84,31 @@ function spaceshipEnterFromTop() {
       }, 1400);
     });
   }
-  
+
+  // Leave button
   if (leaveButton) {
-  leaveButton.addEventListener("click", () => {
-    // Get planet name dynamically from <body class="venus-page"> etc.
-    const bodyClass = document.body.classList[0]; // e.g., "venus-page"
-    const planetKey = bodyClass.replace("-page", ""); // "venus"
-    const formattedPlanet = planetKey.charAt(0).toUpperCase() + planetKey.slice(1); // "Venus"
+    leaveButton.addEventListener("click", () => {
+      const bodyClass = document.body.classList[0];
+      const planetKey = bodyClass.replace("-page", "");
+      const formattedPlanet = planetKey.charAt(0).toUpperCase() + planetKey.slice(1);
 
-    // Save this planet as visited
-    const visited = JSON.parse(localStorage.getItem('visitedPlanets')) || {};
-    visited[formattedPlanet] = true;
-    localStorage.setItem('visitedPlanets', JSON.stringify(visited));
+      const visited = JSON.parse(localStorage.getItem('visitedPlanets')) || {};
+      visited[formattedPlanet] = true;
+      localStorage.setItem('visitedPlanets', JSON.stringify(visited));
 
-    // Spaceship animation + redirect
-    spaceship.classList.remove("from-top", "park-top-left");
-    spaceship.classList.add("fly-up-exit");
+      spaceship.classList.remove("from-top", "park-top-left");
+      spaceship.classList.add("fly-up-exit");
 
-    setTimeout(() => {
-      window.location.href = "index.html";
-    }, 1500);
-  });
-}
+      setTimeout(() => {
+        window.location.href = "index.html";
+      }, 1500);
+    });
+  }
 
+  // HOME BUTTON
+  window.goBack = function () {
+    history.back();
+  };
 
   showScreen(currentScreen);
   spaceshipFlyIn();

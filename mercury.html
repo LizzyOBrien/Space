@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Character encoding and mobile responsiveness -->
+  <!-- Character encoding and mobile responsiveness -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Merury</title>
+  <title>Mercury</title>
   <link rel="stylesheet" href="planet.css" />
 </head>
-<body class="mercury-page"></body>
+<body class="mercury-page">
 
   <div id="planet-background"
     class="planet-screen"
@@ -21,53 +21,59 @@
     <img class="item-on-alien" src="images/Sunglass.png" alt="Green Sunglasses"/>
   </div> 
 
-<div class="item-box item-mercury">
-  <div class="item-content item">
-    <img src="images/Sunglass.png" alt="Green Sunglasses">
+  <div class="item-box item-mercury">
+    <div class="item-content item">
+      <img src="images/Sunglass.png" alt="Green Sunglasses">
+    </div>
   </div>
-</div>
 
-    <!-- "screen" is the dialogue box -->
-    <div class="screen">
-      <div class="dialogue">
-        <h1>MERCURY</h1>
-        <p>This planet is super close to the sun</p>
-        <button class="btn-next">Continue</button>
-      </div>
+  <!-- Dialogue Screens with BACK TO SPACE buttons -->
+
+  <div class="screen">
+    <div class="dialogue">
+      <h1>MERCURY</h1>
+      <p>This planet is super close to the sun</p>
+      <button class="btn-next">Continue</button>
     </div>
+    <button class="btn-home" onclick="goBack()">BACK TO SPACE</button>
+  </div>
 
-    <div class="screen">
-      <div class="dialogue">
-        <h1>MERCURY</h1>
-        <p>And because Mercury doesn’t have an atmosphere to block the sun’s rays, it’s just BLASTED with sunlight all the time.</p>
-        <button class="btn-next">Continue</button>
-      </div>
+  <div class="screen">
+    <div class="dialogue">
+      <h1>MERCURY</h1>
+      <p>And because Mercury doesn’t have an atmosphere to block the sun’s rays, it’s just BLASTED with sunlight all the time.</p>
+      <button class="btn-next">Continue</button>
     </div>
+    <button class="btn-home" onclick="goBack()">BACK TO SPACE</button>
+  </div>
 
-    <div class="screen">
-      <div class="dialogue">
-        <h1>MERCURY</h1>
-        <p>No clouds, no shade, just bright sun</p>
-        <button class="btn-next">Continue</button>
-      </div>
+  <div class="screen">
+    <div class="dialogue">
+      <h1>MERCURY</h1>
+      <p>No clouds, no shade, just bright sun</p>
+      <button class="btn-next">Continue</button>
     </div>
+    <button class="btn-home" onclick="goBack()">BACK TO SPACE</button>
+  </div>
 
-    <div class="screen">
-      <div class="dialogue">
-        <h1>MECURY</h1>
-        <p>I found some sunglasses to help me look around without it hurting my eyes!</p>
-        <button class="btn-next wear-btn">Collect</button>
-      </div>
+  <div class="screen">
+    <div class="dialogue">
+      <h1>MERCURY</h1>
+      <p>I found some sunglasses to help me look around without it hurting my eyes!</p>
+      <button class="btn-next wear-btn">Collect</button>
     </div>
+    <button class="btn-home" onclick="goBack()">BACK TO SPACE</button>
+  </div>
 
-    <div class="screen">
-      <div class="dialogue">
-        <h1>MERCURY</h1>
-        <p>This place is really hot. Lets move on to the next planet!</p>
-        <button class="btn-next btn-leave">Leave</button>
-      </div>
+  <div class="screen">
+    <div class="dialogue">
+      <h1>MERCURY</h1>
+      <p>This place is really hot. Lets move on to the next planet!</p>
+      <button class="btn-next btn-leave">Leave</button>
     </div>
+    <button class="btn-home" onclick="goBack()">BACK TO SPACE</button>
+  </div>
 
-<script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
