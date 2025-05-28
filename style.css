@@ -9,7 +9,7 @@ html {
 }
 
 body {
-  background-image: url('images/Background.png'); /* replace with exact filename */
+  background-image: url('images/Background.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -258,6 +258,8 @@ p {
   width: 100%;
   box-sizing: border-box;
   overflow: hidden;
+  position: absolute;
+  bottom: 30%;
 }
 
 .alien-select img {
@@ -277,13 +279,29 @@ p {
 
 #explorerName {
   padding: 0.5rem;
-  width: 80%;
+  width: 20%;
   font-size: 1rem;
   border-radius: 8px;
   border: none;
   position: fixed;
-  bottom: 150px;
+  bottom: 20%;
 }
+
+
+#explosionEffect {
+  position: fixed;
+  top: 30%;
+  right: 25%;
+  width: 0;
+  height: auto;
+  transform: translate(-50%, -50%) scale(5);
+  opacity: 0;
+  z-index: 99999;
+  pointer-events: none;
+  transition: transform 4s ease-out, opacity 1s ease-out;
+}
+
+
 /* ==================== INTRO SCREEN LAYOUT ==================== */
 
 .intro-content {
@@ -408,7 +426,7 @@ p {
   bottom: 0;
   left: 0;
   margin-top: auto;
-  bottom: 20px;
+  bottom: 10%;
 }
 
 .alien-screen {
@@ -437,7 +455,7 @@ p {
 /* === BUTTON === */
 .btn-next {
   position: fixed;
-  bottom: 60px;
+  bottom: 5%;
   left: 50%;
   transform: translateX(-50%);
 
@@ -457,7 +475,7 @@ p {
 
 .btn-back {
   position: absolute;
-  bottom: 60px;
+  bottom: 5%;
   left: 5%;
 
   padding: 1.00rem 2.5rem;
@@ -493,24 +511,11 @@ p {
   background-color: #1b4445;
 }
 
-#explosionEffect {
-  position: fixed;
-  top: 30%;
-  right: 25%;
-  width: 0;
-  height: auto;
-  transform: translate(-50%, -50%) scale(5);
-  opacity: 0;
-  z-index: 99999;
-  pointer-events: none;
-  transition: transform 4s ease-out, opacity 1s ease-out;
-}
-
 /* === All visted style === */
 .all-visited {
   position: fixed;
-  bottom: 20px;
-  left: 20px;
+  bottom: 5%;
+  left: 5%;
   max-width: 800px;
   width: calc(100% - 40px);
   background: rgba(0, 0, 0, 0.95);
