@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Character encoding and mobile responsiveness -->
+  <!-- Character encoding and mobile responsiveness -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Jupiter</title>
   <link rel="stylesheet" href="planet.css" />
 </head>
-<body class="Jupiter-page"></body>
+<body class="Jupiter-page">
 
   <div id="planet-background"
     class="planet-screen"
@@ -17,57 +17,68 @@
 
   <!-- Alien flies in/out -->
   <div class="spaceship fly-in">
-    <img src="images/AlienSpaceship1.png" alt="Alien in spaceship" />
+    <img id="alienImage" src="" alt="Alien in spaceship" />
     <img class="item-on-alien" src="images/JetPack.png" alt="Jet pack"/>
   </div> 
 
-<div class="item-box item-">
-  <div class="item-content item">
-    <img src="images/JetPack.png" alt="Jet pack">
-  </div>
-</div>
-
-    <!-- "screen" is the dialogue box -->
-    <div class="screen">
-      <div class="dialogue">
-        <h1>JUPITER</h1>
-        <p>Whoa… this planet is huge.</p>
-        <button class="btn-next">Continue</button>
-      </div>
-    </div>
-
-    <div class="screen">
-      <div class="dialogue">
-        <h1>JUPITER</h1>
-        <p>There’s no ground—just endless clouds and storms swirling like crazy.</p>
-        <button class="btn-next">Continue</button>
-      </div>
-    </div>
-
-    <div class="screen">
-      <div class="dialogue">
-        <h1>JUPITER</h1>
-        <p>The wind's so strong, it’s hard to even stay steady.</p>
-        <button class="btn-next">Continue</button>
-      </div>
-    </div>
-
-    <div class="screen">
-      <div class="dialogue">
-        <h1>JUPITER</h1>
-        <p>Good thing i have these jet boosters just to break free from the pull of this place.</p>
-        <button class="btn-next wear-btn">Collect</button>
-      </div>
-    </div>
-
-    <div class="screen">
-      <div class="dialogue">
-        <h1>JUPITER</h1>
-        <p>Jet boosters on—let’s get outta here and see what’s next!</p>
-        <button class="btn-next btn-leave">Leave</button>
-      </div>
+  <div class="item-box item-">
+    <div class="item-content item">
+      <img src="images/JetPack.png" alt="Jet pack">
     </div>
   </div>
+
+  <!-- "screen" is the dialogue box -->
+  <div class="screen">
+    <div class="dialogue">
+      <h1>JUPITER</h1>
+      <p>Whoa… this planet is huge.</p>
+      <button class="btn-next">Continue</button>
+    </div>
+  </div>
+
+  <div class="screen">
+    <div class="dialogue">
+      <h1>JUPITER</h1>
+      <p>There’s no ground—just endless clouds and storms swirling like crazy.</p>
+      <button class="btn-next">Continue</button>
+    </div>
+  </div>
+
+  <div class="screen">
+    <div class="dialogue">
+      <h1>JUPITER</h1>
+      <p>The wind's so strong, it’s hard to even stay steady.</p>
+      <button class="btn-next">Continue</button>
+    </div>
+  </div>
+
+  <div class="screen">
+    <div class="dialogue">
+      <h1>JUPITER</h1>
+      <p>Good thing I have these jet boosters just to break free from the pull of this place.</p>
+      <button class="btn-next wear-btn">Collect</button>
+    </div>
+  </div>
+
+  <div class="screen">
+    <div class="dialogue">
+      <h1>JUPITER</h1>
+      <p>Jet boosters on—let’s get outta here and see what’s next!</p>
+      <button class="btn-next btn-leave">Leave</button>
+    </div>
+  </div>
+
+  <script>
+    // Set the correct spaceship image based on user's selection
+    const selectedAlien = localStorage.getItem("selectedAlien");
+    if (selectedAlien) {
+      const alienNumber = selectedAlien.match(/\d+/)?.[0];
+      const spaceshipImage = `images/AlienSpaceship${alienNumber}.png`;
+      document.getElementById("alienImage").src = spaceshipImage;
+    } else {
+      document.getElementById("alienImage").src = "images/defaultAlien.png";
+    }
+  </script>
 
   <script src="script.js"></script>
 </body>

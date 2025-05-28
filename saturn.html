@@ -17,7 +17,7 @@
 
   <!-- Alien flies in/out -->
   <div class="spaceship fly-in">
-    <img src="images/AlienSpaceship1.png" alt="Alien in spaceship" />
+    <img id="alienImage" src="" alt="Alien in spaceship" />
     <img class="item-on-alien" src="images/Ring.png" alt="Golden ring"/>
   </div> 
 
@@ -73,6 +73,18 @@
     </div>
     <button class="btn-home" onclick="goBack()">BACK TO SPACE</button>
   </div>
+
+  <script>
+    // Set the correct spaceship image based on user's selection
+    const selectedAlien = localStorage.getItem("selectedAlien");
+    if (selectedAlien) {
+      const alienNumber = selectedAlien.match(/\d+/)?.[0];
+      const spaceshipImage = `images/AlienSpaceship${alienNumber}.png`;
+      document.getElementById("alienImage").src = spaceshipImage;
+    } else {
+      document.getElementById("alienImage").src = "images/defaultAlien.png";
+    }
+  </script>
 
   <script src="script.js"></script>
 </body>
