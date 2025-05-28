@@ -526,7 +526,7 @@ p {
 }
 
 .all-visited-text {
-  font-size: 1.1rem;
+  font-size: 1.5rem;
   margin: 0 0 10px;
   line-height: 1.5;
   color: #ffffff;
@@ -540,7 +540,7 @@ p {
   background-color: #8b1e61;
   border: none;
   border-radius: 8px;
-  font-size: 1rem;
+  font-size: 2rem;
   cursor: pointer;
   color: #ffffff;
   font-weight: bold;
