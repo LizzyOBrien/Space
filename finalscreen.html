@@ -51,9 +51,9 @@
     .grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      grid-gap: 3rem;
-      margin-bottom: 2rem;
-      max-width: 100%;
+      gap: 2rem;
+      width: 100%;
+      max-width: 1600px;
       box-sizing: border-box;
       padding: 0 1rem;
     }
@@ -63,8 +63,8 @@
       padding: 1rem;
       border-radius: 1rem;
       transition: transform 0.8s ease-in-out;
-      width: 400px;
-      height: 220px;
+      width: 100%;
+      aspect-ratio: 16 / 9;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -99,7 +99,7 @@
 
     .item-label {
       margin-top: 1rem;
-      font-size: 2rem;
+      font-size: 1.75rem;
       color: white;
       opacity: 0;
       transform: translateY(10px);
@@ -119,39 +119,34 @@
       padding: 1rem 2rem;
       border-radius: 1rem;
       text-align: center;
-      margin: 0 1rem;
+      margin: 2rem 1rem 0;
     }
 
     #selectedAlien {
       z-index: 3;
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      max-width: 150px;
     }
 
-/* ✅ Responsive adjustments ONLY for smaller screens */
-    @media (max-width: 1600px) {
-      .grid {
-        grid-template-columns: repeat(2, 1fr);
-        justify-items: center;
-      }
+    #selectedAlien img {
+      width: 100%;
+      height: auto;
     }
 
-    @media (max-width: 800px) {
-      .grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-      }
-
-      .item-box {
-        width: 90vw;
-        height: auto;
-        aspect-ratio: 16 / 9;
-      }
-
+    /* Responsive tweak for ultra-small screens */
+    @media (max-width: 500px) {
       .item-label {
-        font-size: 1.5rem;
+        font-size: 1.25rem;
       }
 
       .prompt {
-        font-size: 2rem;
+        font-size: 1.75rem;
+      }
+
+      #selectedAlien {
+        max-width: 100px;
       }
     }
   </style>
@@ -166,7 +161,6 @@
     <img id="selectedAlienImg" src="images/alienSpaceship.png" alt="Alien Spaceship">
   </div>
 
-  <!-- Final screen content -->
   <div class="end-container">
     <div class="grid">
       <div class="item-wrapper">
