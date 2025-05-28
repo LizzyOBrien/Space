@@ -2,71 +2,241 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Jupiter</title>
-  <link rel="stylesheet" href="planet.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Choose a New Home</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    html, body {
+      position: relative;
+      z-index: auto;
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow-x: hidden;
+      font-family: sans-serif;
+    }
+
+    .background-iframe {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 0;
+      border: none;
+      pointer-events: none;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 1;
+    }
+
+    .end-container {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      color: white;
+      padding: 3rem 1rem;
+      overflow-y: auto;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      width: 100%;
+      max-width: 1600px;
+      box-sizing: border-box;
+      padding: 0 1rem;
+    }
+
+    .item-box {
+      background-color: black;
+      padding: 1rem;
+      border-radius: 1rem;
+      transition: transform 0.8s ease-in-out;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-sizing: border-box;
+      cursor: pointer;
+    }
+
+    .item {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .item img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+
+    .item-box:hover {
+      box-shadow: 0 0 30px yellow;
+    }
+
+    .item-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+    }
+
+    .item-label {
+      margin-top: 1rem;
+      font-size: 1.75rem;
+      color: white;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      pointer-events: none;
+      text-align: center;
+    }
+
+    .item-box:hover + .item-label {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .prompt {
+      font-size: 2.5rem;
+      background-color: rgba(0, 0, 0, 0.8);
+      padding: 1rem 2rem;
+      border-radius: 1rem;
+      text-align: center;
+      margin: 2rem 1rem 0;
+    }
+
+    #selectedAlien {
+      z-index: 3;
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      max-width: 150px;
+    }
+
+    #selectedAlien img {
+      width: 100%;
+      height: auto;
+    }
+
+    /* Responsive tweak for ultra-small screens */
+    @media (max-width: 500px) {
+      .item-label {
+        font-size: 1.25rem;
+      }
+
+      .prompt {
+        font-size: 1.75rem;
+      }
+
+      #selectedAlien {
+        max-width: 100px;
+      }
+    }
+  </style>
 </head>
-<body class="jupiter-page">
 
-  <div id="planet-background"
-    class="planet-screen"
-    data-default-image="images/Jupiter.png"
-    data-expanded-image="images/JupiterB.png">
+<body>
+  <iframe src="index.html" class="background-iframe" aria-hidden="true"></iframe>
+
+  <div class="overlay"></div>
+
+  <div id="selectedAlien">
+    <img id="selectedAlienImg" src="images/alienSpaceship.png" alt="Alien Spaceship">
   </div>
 
-  <!-- Alien flies in/out -->
-  <div class="spaceship fly-in">
-    <img src="images/AlienSpaceship1.png" alt="Alien in spaceship" />
-    <img class="item-on-alien" src="images/JetPack.png" alt="JetPack"/>
-  </div>
+  <div class="end-container">
+    <div class="grid">
+      <div class="item-wrapper">
+        <a href="finalplanets.html?planet=Mercury">
+          <div class="item-box" data-planet="Mercury">
+            <div class="item"><img src="images/Sunglass.png" alt="Mercury item" /></div>
+          </div>
+        </a>
+        <div class="item-label">Mercury</div>
+      </div>
 
-  <div class="item-box item-jupiter">
-    <div class="item-content item">
-      <img src="images/JetPack.png" alt="JetPack">
+      <div class="item-wrapper">
+        <a href="finalplanets.html?planet=Venus">
+          <div class="item-box" data-planet="Venus">
+            <div class="item"><img src="images/Unbrella.png" alt="Venus item" /></div>
+          </div>
+        </a>
+        <div class="item-label">Venus</div>
+      </div>
+
+      <div class="item-wrapper">
+        <a href="finalplanets.html?planet=Earth">
+          <div class="item-box" data-planet="Earth">
+            <div class="item"><img src="images/Cup.png" alt="Earth item" /></div>
+          </div>
+        </a>
+        <div class="item-label">Earth</div>
+      </div>
+
+      <div class="item-wrapper">
+        <a href="finalplanets.html?planet=Mars">
+          <div class="item-box" data-planet="Mars">
+            <div class="item"><img src="images/Mask.png" alt="Mars item" /></div>
+          </div>
+        </a>
+        <div class="item-label">Mars</div>
+      </div>
+
+      <div class="item-wrapper">
+        <a href="finalplanets.html?planet=Jupiter">
+          <div class="item-box" data-planet="Jupiter">
+            <div class="item"><img src="images/JetPack.png" alt="Jupiter item" /></div>
+          </div>
+        </a>
+        <div class="item-label">Jupiter</div>
+      </div>
+
+      <div class="item-wrapper">
+        <a href="finalplanets.html?planet=Saturn">
+          <div class="item-box" data-planet="Saturn">
+            <div class="item"><img src="images/Ring.png" alt="Saturn item" /></div>
+          </div>
+        </a>
+        <div class="item-label">Saturn</div>
+      </div>
+
+      <div class="item-wrapper">
+        <a href="finalplanets.html?planet=Uranus">
+          <div class="item-box" data-planet="Uranus">
+            <div class="item"><img src="images/Scarf.png" alt="Uranus item" /></div>
+          </div>
+        </a>
+        <div class="item-label">Uranus</div>
+      </div>
+
+      <div class="item-wrapper">
+        <a href="finalplanets.html?planet=Neptune">
+          <div class="item-box" data-planet="Neptune">
+            <div class="item"><img src="images/Google.png" alt="Neptune item" /></div>
+          </div>
+        </a>
+        <div class="item-label">Neptune</div>
+      </div>
     </div>
+    
+    <div class="prompt">Where should the aliens make their new home?</div>
   </div>
-
-  <!-- Dialogue screens -->
-  <div class="screen">
-    <div class="dialogue">
-      <h1>JUPITER</h1>
-      <p>Whoa… this planet is huge.</p>
-      <button class="btn-next">CONTINUE</button>
-    </div>
-  </div>
-
-  <div class="screen">
-    <div class="dialogue">
-      <h1>JUPITER</h1>
-      <p>There’s no ground—just endless clouds and storms swirling like crazy.</p>
-      <button class="btn-next">CONTINUE</button>
-    </div>
-  </div>
-
-  <div class="screen">
-    <div class="dialogue">
-      <h1>JUPITER</h1>
-      <p>The wind's so strong, it’s hard to even stay steady.</p>
-      <button class="btn-next">CONTINUE</button>
-    </div>
-  </div>
-
-  <div class="screen">
-    <div class="dialogue">
-      <h1>JUPITER</h1>
-      <p>Good thing I have these jet boosters just to break free from the pull of this place.</p>
-      <button class="btn-next wear-btn">COLLECT</button>
-    </div>
-  </div>
-
-  <div class="screen">
-    <div class="dialogue">
-      <h1>JUPITER</h1>
-      <p>Jet boosters on—let’s get outta here and see what’s next!</p>
-      <button class="btn-next btn-leave">BACK TO SPACE</button>
-    </div>
-  </div>
-
-  <script src="script.js"></script>
 </body>
 </html>
