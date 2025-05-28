@@ -394,8 +394,7 @@ p {
   flex-wrap: nowrap;
   gap: 4vw;
   padding: 1.5rem;
-  width: 100%;
-  max-width: 1000px;
+  max-width: 80%;
   margin: 0 auto;
   overflow-x: auto;
   box-sizing: border-box;
@@ -404,7 +403,7 @@ p {
 
 .alien-select img {
   flex: 1 1 auto;
-  width: clamp(80px, 15vw, 160px);
+
   height: auto;
   transition: transform 0.3s ease;
   border: 2px solid transparent;
@@ -446,7 +445,6 @@ p {
   position: absolute;
   top: 20px;
   left: 20px;
-
   font-weight: bold;
   margin: 0;
   z-index: 10;
@@ -514,8 +512,8 @@ p {
 /* === All visted style === */
 .all-visited {
   position: fixed;
-  bottom: 5%;
-  left: 5%;
+  bottom: 2%;
+  left: 2%;
   max-width: 800px;
   width: calc(100% - 40px);
   background: rgba(0, 0, 0, 0.95);
