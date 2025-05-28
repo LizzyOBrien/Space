@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Congrats!</title>
+  <link rel="stylesheet" href="planet.css">
+  <style>
+    .final-heading {
+      position: absolute;
+      top: 40%;
+      left: 10%;
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: #ffffff;
+      font-family: inherit;
+    }
+
+    .dialogue-container {
+      position: absolute;
+      top: 45%; /* just below the heading */
+      left: 10%;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="final-heading">CONGRATS, YOU FINISHED THE JOURNEY!</div>
+
+  <!-- Spaceship with aliens -->
+  <div class="spaceship" style="bottom: 30%; right: 10%; width: 600px;">
+    <img src="images/SpaceshipAll.png" alt="Spaceship with 5 aliens">
+  </div>
+
+  <div class="dialogue-container">
+    <div class="dialogue">
+      <p>“I can't thank you enough, you saved our species!”</p>
+      <button onclick="window.location.href='begin.html'">PLAY AGAIN</button>
+    </div>
+  </div>
+
+</body>
+</html>
