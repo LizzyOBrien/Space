@@ -530,25 +530,29 @@ p {
   position: fixed;
   bottom: 20px;
   left: 20px;
-  max-width: 500px;
+  max-width: 800px;
   width: calc(100% - 40px);
-  background: rgba(255, 255, 255, 0.95);
-  padding: 10px 14px;
+  background: rgba(0, 0, 0, 0.95);
+  padding: 10px;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
   z-index: 9999;
   box-sizing: border-box;
-}
 
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
 
 .all-visited-text {
-  font-size: 0.9rem;
-  margin: 0 0 8px;
-  line-height: 1.3;
-  color: #333;
+  font-size: 1.1rem;
+  margin: 0 0 10px;
+  line-height: 1.5;
+  color: #ffffff;
   font-weight: 500;
+  padding: 0;
+  word-wrap: break-word;
 }
-
 
 .all-visited-button {
   padding: 10px 14px;
@@ -559,6 +563,8 @@ p {
   cursor: pointer;
   color: #ffffff;
   font-weight: bold;
+  width: fit-content;
+  max-width: 100%;
 }
 
 .hidden {

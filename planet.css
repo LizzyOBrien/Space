@@ -274,7 +274,7 @@ body, html {
   left: clamp(20px, 5vw, 40px);
   display: inline-block;
   width: auto;
-  max-width: 150px;
+  max-width: 450px;
   padding: clamp(0.75rem, 2vw, 1rem) clamp(1.5rem, 5vw, 2.5rem);
   font-size: clamp(1rem, 2.5vw, 1.5rem);
   font-weight: bold;
