@@ -30,16 +30,16 @@ No worries. Just click the "Restart Game" button on the screen, and it will loop
 - `start.html` – Start screen of the game.
 - `begin.html` – Alien selection and onboarding instructions.
 - `index.html` – Solar system checkpoint screen; shows visited planets and includes a "Restart Game" option.
-- `finalplanets.html` – Recap screen showing all items collected before the final message.
-- `finalscreen.html` – Game conclusion screen.
-- `earth.html` – Planet Earth experience.
-- `jupiter.html` – Planet Jupiter experience.
-- `mars.html` – Planet Mars experience.
 - `mercury.html` – Planet Mercury experience.
-- `neptune.html` – Planet Neptune experience.
+- `venus.html` – Planet Venus experience.
+- `earth.html` – Planet Earth experience.
+- `mars.html` – Planet Mars experience.
+- `jupiter.html` – Planet Jupiter experience.
 - `saturn.html` – Planet Saturn experience.
 - `uranus.html` – Planet Uranus experience.
-- `venus.html` – Planet Venus experience.
+- `neptune.html` – Planet Neptune experience.
+- `finalscreen.html` – Recap screen showing all items collected before the final message.
+- `finalplanets.html` – Game conclusion screen.
 - `planet.css` – Styles for all planet pages.
 - `start.css` – Styles for the start screen.
 - `style.css` – Global styles and alien selection interface.
