@@ -7,7 +7,7 @@ html {
   color: white;
 }
 body {
-  background-image: url('images/Background.png'); /* replace with exact filename */
+  background-image: url('images/Background.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -110,17 +110,13 @@ p {
   font-size: 1.5rem;
   font-weight: bold;
   background-color: rgb(237, 242, 244);
-  color: rgb(47, 12, 63);
+  color: rgb(209, 56, 151);
   border: none;
   border-radius: 8px;
   cursor: pointer;
   z-index: 1000;
   text-align: center;
   text-decoration: none;
-}
-
-.btn-row button {
-  width: auto;
-  min-width: 120px; /* Or whatever feels right visually */
-  flex-shrink: 0;
+   box-shadow: 0 0 60px rgba(112, 65, 205, 0.7),
+              0 0 0px rgba(70, 33, 174, 0.5);
 }
