@@ -4,30 +4,26 @@
     <!-- Character encoding and mobile responsiveness -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mercury</title>
+  <title>Mars</title>
   <link rel="stylesheet" href="planet.css" />
 </head>
-<body class="planet-page"
-data-planet-name="MARS"
-data-bg="images/Mars.png"
-data-bg-expanded="images/MarsB.png"
-data-item="images/Mask.png"
-data-item-name="face mask">
+<body class="mars-page"></body>
 
-  <div id="planet-background" class="planet-mars"></div>
-
-  <!-- container for mercury before expand -->
-  <div class="planet-screen planet-mars"></div>
+  <div id="planet-background"
+    class="planet-screen"
+    data-default-image="images/Mars.png"
+    data-expanded-image="images/MarsB.png">
+  </div>
 
   <!-- Alien flies in/out -->
   <div class="spaceship fly-in">
     <img src="images/AlienSpaceship1.png" alt="Alien in spaceship" />
-    <img class="item-on-alien" src="image/Mask.png" alt="face mask"/>
-  </div>
+    <img class="item-on-alien" src="images/Mask.png" alt="White face mask"/>
+  </div> 
 
 <div class="item-box item-mars">
   <div class="item-content item">
-    <img src="images/Mask.png" alt="face mask">
+    <img src="images/Mask.png" alt="White face mask">
   </div>
 </div>
 
@@ -67,12 +63,11 @@ data-item-name="face mask">
     <div class="screen">
       <div class="dialogue">
         <h1>MARS</h1>
-        <p>Let’s keep moving—maybe the next stop is more exciting </p>
+        <p>Let’s keep moving—maybe the next stop is more exciting.</p>
         <button class="btn-next btn-leave">Leave</button>
       </div>
     </div>
-  </div>
 
-  <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
