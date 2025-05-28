@@ -39,4 +39,15 @@
   </div>
 
 </body>
+<script>
+  const urlParams = new URLSearchParams(window.location.search);
+  const planet = urlParams.get('planet');
+
+  if (planet) {
+    const backgroundImage = `images/${planet}B.png`;
+    document.body.style.backgroundImage = `url('${backgroundImage}')`;
+    document.body.style.backgroundSize = 'cover';
+    document.body.style.backgroundPosition = 'center';
+  }
+</script>
 </html>
